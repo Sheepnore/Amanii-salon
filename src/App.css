@@ -1,6 +1,8 @@
 body{
   margin: 0;
+  display: flex;
 }
 :root{
-  --page-padding-inline: 9rem;
+  --page-padding-inline: 7rem;
+  
 }

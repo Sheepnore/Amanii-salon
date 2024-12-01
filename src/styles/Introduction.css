@@ -9,12 +9,16 @@
 
 .intro-container{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
   padding: 6rem var(--page-padding-inline) 3rem;
-  
+}
+.intro-container .img{
+  display: grid;
 }
 .intro-container .img img{
   max-width: 100%;
+  align-self: center;
 }
 .text-container{
   display: flex;

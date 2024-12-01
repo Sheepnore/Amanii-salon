@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 function Navbar() {
   return (
     <div className="navbar-container">
-      <div className="logo">AppointmentSys</div>
+      <div className="logo">Wox</div>
       <div className="hashlinks-container">
         <HashLink smooth to="/">
           Home
