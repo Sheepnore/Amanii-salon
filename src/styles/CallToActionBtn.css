@@ -1,0 +1,15 @@
+.call-to-action-btn{
+  background-color: rgb(83, 57, 23);
+  color: #ffff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 32px;
+  padding: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 300ms ease;
+}
+.call-to-action-btn:hover{
+  opacity: .8;
+  transition: 300ms ease;
+}

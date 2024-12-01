@@ -1,0 +1,26 @@
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 5rem;
+  padding-top: 1.5rem;
+}
+.navbar-container .logo{
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.navbar-container .hashlinks-container{
+  display: flex;
+  gap: 2rem;
+}
+.navbar-container .hashlinks-container a{
+  text-decoration: none;
+  color: rgb(127, 70, 27);
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: 300ms ease;
+}
+.navbar-container .hashlinks-container a:hover{
+  opacity: .5;
+  transition: 300ms ease;
+}
