@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import variable from "./variable";
 const GlobalStyle = createGlobalStyle`
   ${variable};
+  
   body{
     margin:0;
     padding:0;

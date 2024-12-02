@@ -5,7 +5,7 @@ import introimg from "../assets/introimg.png";
 
 function Introduction() {
   return (
-    <div className="introduction">
+    <div className="introduction" id="introduction">
       <Navbar />
       <div className="intro-container">
         <div className="text-container">

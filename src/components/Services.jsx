@@ -10,8 +10,8 @@ function Services() {
   ];
 
   return (
-    <div className="services">
-      <div className="heading">Select Services</div>
+    <div className="services" id="services">
+      <div className="highlight-heading">Select Services</div>
       <div className="cards-container">
         {services.map((service) => {
           return (

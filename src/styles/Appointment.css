@@ -1,0 +1,4 @@
+.Appointment{
+  display: flex;
+  padding-inline: var(--page-padding-inline);
+}
