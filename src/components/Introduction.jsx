@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import CallToActionBtn from "./CallToActionBtn";
 import "../styles/Introduction.css";
 import introimg from "../assets/introimg.png";
+
 function Introduction() {
   return (
     <div className="introduction">

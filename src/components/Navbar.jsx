@@ -1,4 +1,3 @@
-import { Routes, Link } from "react-router";
 import { HashLink } from "react-router-hash-link";
 import "../styles/Navbar.css";
 function Navbar() {

@@ -4,7 +4,7 @@ import Introduction from "./components/Introduction";
 import Services from "./components/Services";
 import Appointment from "./components/Appointment";
 import ContactDetails from "./components/ContactDetails";
-import "./App.css";
+import { GlobalStyle } from "./styles";
 
 const routes = createBrowserRouter([
   {
@@ -28,6 +28,7 @@ const routes = createBrowserRouter([
 function App() {
   return (
     <>
+      <GlobalStyle></GlobalStyle>
       <RouterProvider router={routes}></RouterProvider>
       <Services></Services>
     </>
