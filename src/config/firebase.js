@@ -3,16 +3,16 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import {getFirestore} from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_WEB_API_KEY,
-  authDomain: "salon-project-43926.firebaseapp.com",
-  projectId: "salon-project-43926",
-  storageBucket: "salon-project-43926.firebasestorage.app",
-  messagingSenderId: "691004466662",
-  appId: "1:691004466662:web:97a033d8aba5455ad02227",
-  measurementId: "G-X9LC9PLKT3"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider()
 export const db = getFirestore(app);
+
