@@ -4,24 +4,13 @@ import Introduction from "./components/Introduction";
 import Services from "./components/Services";
 import Appointment from "./components/Appointment";
 import ContactDetails from "./components/ContactDetails";
+import Auth from "./components/Auth/auth";
 import { GlobalStyle } from "./styles";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Introduction />,
-  },
-  {
-    path: "/",
-    element: <Services />,
-  },
-  {
-    path: "/",
-    element: <Appointment />,
-  },
-  {
-    path: "/",
-    element: <ContactDetails />,
   },
 ]);
 
@@ -33,6 +22,7 @@ function App() {
       <Services></Services>
       <Appointment></Appointment>
       <ContactDetails></ContactDetails>
+      <Auth></Auth>
     </>
   );
 }
