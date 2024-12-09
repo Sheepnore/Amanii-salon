@@ -19,10 +19,9 @@ function App() {
     <>
       <GlobalStyle></GlobalStyle>
       <RouterProvider router={routes}></RouterProvider>
-      <Services></Services>
       <Appointment></Appointment>
       <ContactDetails></ContactDetails>
-      <Auth></Auth>
+      {/* <Auth></Auth> */}
     </>
   );
 }
