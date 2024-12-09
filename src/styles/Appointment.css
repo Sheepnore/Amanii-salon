@@ -1,4 +1,19 @@
 .Appointment{
   display: flex;
   padding-inline: var(--page-padding-inline);
+  flex-direction: column;
+}
+.Appointment  > *{
+  padding-inline: var(--page-padding-inline);
+}
+.Appointment .bookBtn{
+  padding-top: 2rem;
+}
+.Appointment .bookBtn button{
+  width: 5rem;
+  height: 2rem;
+}
+.Appointment .info-inputs{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }

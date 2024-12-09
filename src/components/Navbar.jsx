@@ -8,9 +8,6 @@ function Navbar() {
         <HashLink smooth to="/">
           Home
         </HashLink>
-        <HashLink smooth to="/#services">
-          Services
-        </HashLink>
         <HashLink smooth to="/#appointment">
           Appointment
         </HashLink>
