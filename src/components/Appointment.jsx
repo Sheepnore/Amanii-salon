@@ -7,28 +7,39 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
-import { BookBtn } from "./CallToActionBtn";
+import { StyledBookBtn } from "./CallToActionBtn";
+
 function Appointment() {
   const [serviceSelected, setServiceSelected] = useState([]);
-  const [fullName, setFullName] = useState({ firstName: null, lastName: null });
-  const [phone, setPhone] = useState(null);
+  const [fullName, setFullName] = useState({
+    firstName: null,
+    lastName: null,
+  });
+  const [phone, setPhone] = useState("");
   const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState(dayjs());
 
-  // Add appointment to the db
-  const createAppointment = async () => {
-    await addDoc(collection(db, "appointments"), {
-      name: fullName,
-      date: date.format("YYYY/MM/DD"),
-      time: time.format("HH:MM"),
-      service: serviceSelected,
-      phone: phone,
-    });
-  };
-  console.log(date);
+  console.log(date.format("YYYY/MM/DD"), time.format("HH:mm"));
 
+  // Add appointment to the db
+  const createAppointment = async (e) => {
+    // when triggers form submit event, the default action is reloading the page. To prevent reloading from happening, use e.preventDefault()
+    e.preventDefault();
+    try {
+      const ref = await addDoc(collection(db, "appointments"), {
+        name: fullName,
+        date: date.format("YYYY/MM/DD"),
+        time: time.format("HH:mm"),
+        service: serviceSelected,
+        phone: phone,
+      });
+      console.log(ref);
+    } catch (err) {
+      console.error("Error adding appointment:", err);
+    }
+  };
   return (
-    <form className="Appointment" id="appointment">
+    <form className="Appointment" id="appointment" onSubmit={createAppointment}>
       <Services
         setServiceSelected={setServiceSelected}
         serviceSelected={serviceSelected}
@@ -95,14 +106,7 @@ function Appointment() {
           />
         </div>
       </div>
-      <BookBtn
-        onClick={() => {
-          createAppointment();
-        }}
-        className="bookBtn"
-      >
-        Book
-      </BookBtn>
+      <StyledBookBtn type="submit">Submit</StyledBookBtn>
     </form>
   );
 }

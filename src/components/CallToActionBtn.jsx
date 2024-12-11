@@ -28,8 +28,8 @@ function CallToActionBtn() {
   return <StyledButton>Book Now</StyledButton>;
 }
 
-export const BookBtn = () => {
-  return <StyledButton>Book</StyledButton>;
+export const StyledBookBtn = ({ children }) => {
+  return <StyledButton>{children}</StyledButton>;
 };
 
 export default CallToActionBtn;

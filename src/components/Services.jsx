@@ -4,12 +4,12 @@ import ServiceOptionCard from "./ServiceOptionCard";
 
 function Services({ serviceSelected, setServiceSelected }) {
   const services = [
-    { service: "haircut", price_NTD: 2000 },
-    { service: "hairwash", price_NTD: 500 },
-    { service: "scalp massage", price_NTD: 4000 },
-    { service: "hair perming", price_NTD: 3500 },
-    { service: "hair staightening", price_NTD: 3500 },
-    { service: "hair dyeing", price_NTD: 4000 },
+    { service: "Haircut", price_NTD: 2000 },
+    { service: "Hairwash", price_NTD: 500 },
+    { service: "Scalp Massage", price_NTD: 4000 },
+    { service: "Hair Perming", price_NTD: 3500 },
+    { service: "Hair Staightening", price_NTD: 3500 },
+    { service: "Hair Dyeing", price_NTD: 4000 },
   ];
 
   return (

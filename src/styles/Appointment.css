@@ -5,7 +5,7 @@
 }
 .Appointment .datepicker{
   display: flex;
-  justify-content:space-evenly;
+  justify-content:center;
   margin: 1rem 0;
 }
 /* user input */
