@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
+import { BookBtn } from "./CallToActionBtn";
 function Appointment() {
   const [serviceSelected, setServiceSelected] = useState([]);
   const [fullName, setFullName] = useState({ firstName: null, lastName: null });
@@ -94,14 +95,14 @@ function Appointment() {
           />
         </div>
       </div>
-      <button
+      <BookBtn
         onClick={() => {
           createAppointment();
         }}
         className="bookBtn"
       >
         Book
-      </button>
+      </BookBtn>
     </form>
   );
 }

@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   background-color: rgb(100, 70, 30);
+  align-self: center;
   color: #ffff;
   font-size: 1rem;
   border: none;
-  border-radius: 24px;
-  padding: 1rem;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem 0;
   font-weight: 600;
   cursor: pointer;
   transition: 300ms ease;
@@ -25,4 +27,9 @@ const StyledButton = styled.button`
 function CallToActionBtn() {
   return <StyledButton>Book Now</StyledButton>;
 }
+
+export const BookBtn = () => {
+  return <StyledButton>Book</StyledButton>;
+};
+
 export default CallToActionBtn;
