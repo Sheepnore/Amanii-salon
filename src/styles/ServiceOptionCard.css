@@ -1,3 +1,16 @@
+.service-card{
+  display: flex;
+  justify-content: space-between;
+  border: .1px solid gray;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: .5rem;
+  box-shadow: 1px 3px 3px rgba(128, 128, 128, 0.5);
+}
 .service-name{
-  margin-right: 1rem;
+  
+}
+.service-price{
+
 }

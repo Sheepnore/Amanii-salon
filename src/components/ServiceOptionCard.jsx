@@ -19,8 +19,12 @@ function ServiceOptionCard({
   };
 
   return (
-    <div className="card">
-      <input type="checkbox" onChange={handleSelectService} />
+    <div className="service-card">
+      <input
+        type="checkbox"
+        onChange={handleSelectService}
+        className="service-checkbox"
+      />
       <span className="service-name">{serviceObj.service}</span>
       <span className="service-cost">Cost: {serviceObj.price_NTD}</span>
     </div>

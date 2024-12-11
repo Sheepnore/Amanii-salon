@@ -1,7 +1,8 @@
 .services{
-  padding: 3rem var(--page-padding-inline);
+  padding: 3rem 0rem;
 }
 .services .cards-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 50%));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 30%));
+  justify-content: center;
 }

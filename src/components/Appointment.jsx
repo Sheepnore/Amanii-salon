@@ -53,8 +53,8 @@ function Appointment() {
           />
         </LocalizationProvider>
       </div>
-      <div className="personal-info">
-        <div className="highlight-heading">Your contact information</div>
+      <div className="highlight-heading">Your contact information</div>
+      <div className="user-info">
         <div className="info-inputs">
           <input
             type="text"
@@ -93,14 +93,15 @@ function Appointment() {
             pattern="^0\d{9}"
           />
         </div>
-        <button
-          onClick={() => {
-            createAppointment();
-          }}
-        >
-          Book
-        </button>
       </div>
+      <button
+        onClick={() => {
+          createAppointment();
+        }}
+        className="bookBtn"
+      >
+        Book
+      </button>
     </form>
   );
 }
