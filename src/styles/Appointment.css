@@ -17,3 +17,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }
+.Appointment .info-inputs input:valid{
+  background: #ffff;
+}
+.Appointment .info-inputs input:invalid{
+  background: rgba(255, 179, 179, 0.357);
+}

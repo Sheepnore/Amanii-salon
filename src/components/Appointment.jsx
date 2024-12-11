@@ -9,19 +9,25 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
 function Appointment() {
   const [serviceSelected, setServiceSelected] = useState([]);
+  const [fullName, setFullName] = useState({ firstName: null, lastName: null });
+  const [phone, setPhone] = useState(null);
+  const [date, setDate] = useState(dayjs());
+  const [time, setTime] = useState(dayjs());
 
-  const [date, setDate] = useState(dayjs("2024-12-09"));
   // Add appointment to the db
   const createAppointment = async () => {
     await addDoc(collection(db, "appointments"), {
-      name: "abc",
-      date: date.format(),
+      name: fullName,
+      date: date.format("YYYY/MM/DD"),
+      time: time.format("HH:MM"),
       service: serviceSelected,
+      phone: phone,
     });
   };
+  console.log(date);
 
   return (
-    <div className="Appointment" id="appointment">
+    <form className="Appointment" id="appointment">
       <Services
         setServiceSelected={setServiceSelected}
         serviceSelected={serviceSelected}
@@ -30,14 +36,21 @@ function Appointment() {
       <div className="datepicker">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
-            defaultValue={dayjs("2024/12/02", "YYYY-MM-DD")}
+            defaultValue={date}
             value={date}
             onChange={(newDate) => {
-              console.log(newDate.format());
+              console.log(newDate);
               setDate(newDate);
             }}
           />
-          <TimePicker label="Basic time picker" />
+          <TimePicker
+            defaultValue={time}
+            value={time}
+            onChange={(newTime) => {
+              console.log(newTime);
+              setTime(newTime);
+            }}
+          />
         </LocalizationProvider>
       </div>
       <div className="personal-info">
@@ -48,22 +61,38 @@ function Appointment() {
             className="firstName"
             placeholder="Your first name"
             defaultValue={null}
+            onChange={(e) => {
+              setFullName((newVal) => ({
+                ...fullName,
+                firstName: e.target.value,
+              }));
+            }}
+            pattern="[\u4e00-\u9fff]{1,5}"
           />
           <input
             type="text"
             className="lastName"
             placeholder="Your last name"
             defaultValue={null}
+            onChange={(e) => {
+              setFullName((newVal) => ({
+                ...fullName,
+                lastName: e.target.value,
+              }));
+            }}
+            pattern="[\u4e00-\u9fff]{1,5}"
           />
           <input
             type="tel"
             className="phone"
             placeholder="Phone number for contact"
             defaultValue={null}
+            onChange={(e) => {
+              setPhone(() => e.target.value);
+            }}
+            pattern="^0\d{9}"
           />
         </div>
-      </div>
-      <div className="bookBtn">
         <button
           onClick={() => {
             createAppointment();
@@ -72,7 +101,7 @@ function Appointment() {
           Book
         </button>
       </div>
-    </div>
+    </form>
   );
 }
 export default Appointment;
