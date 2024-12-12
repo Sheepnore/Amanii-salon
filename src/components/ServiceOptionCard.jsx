@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/ServiceOptionCard.css";
 
 function ServiceOptionCard({
@@ -5,6 +6,8 @@ function ServiceOptionCard({
   setServiceSelected,
   serviceSelected,
 }) {
+  const [isChecked, setIsChecked] = useState(false);
+
   const handleSelectService = () => {
     if (serviceSelected.includes(serviceObj.service)) {
       // Remove the service from the selected list
@@ -19,11 +22,17 @@ function ServiceOptionCard({
   };
 
   return (
-    <div className="service-card">
+    <div
+      className="service-card"
+      onClick={() => {
+        setIsChecked(!isChecked);
+      }}
+    >
       <input
         type="checkbox"
         onChange={handleSelectService}
         className="service-checkbox"
+        checked={isChecked}
       />
       <span className="service-name">{serviceObj.service}</span>
       <span className="service-cost">Cost: {serviceObj.price_NTD}</span>

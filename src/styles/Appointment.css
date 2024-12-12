@@ -28,5 +28,8 @@
 .Appointment .info-inputs input:invalid{
   background: rgba(255, 179, 179, 0.357);
 }
-/* book btn */
-/*  */
+/* submit modal */
+.Appointment .submitModal{
+  display: flex;
+  justify-content: center;
+}

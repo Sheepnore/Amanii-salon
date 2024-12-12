@@ -7,19 +7,17 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
-import { StyledBookBtn } from "./CallToActionBtn";
+import AlertDialogSlide from "./SubmitModal";
 
 function Appointment() {
   const [serviceSelected, setServiceSelected] = useState([]);
   const [fullName, setFullName] = useState({
-    firstName: null,
-    lastName: null,
+    firstName: "John",
+    lastName: "Doe",
   });
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState(dayjs());
-
-  console.log(date.format("YYYY/MM/DD"), time.format("HH:mm"));
 
   // Add appointment to the db
   const createAppointment = async (e) => {
@@ -38,6 +36,7 @@ function Appointment() {
       console.error("Error adding appointment:", err);
     }
   };
+
   return (
     <form className="Appointment" id="appointment" onSubmit={createAppointment}>
       <Services
@@ -106,7 +105,9 @@ function Appointment() {
           />
         </div>
       </div>
-      <StyledBookBtn type="submit">Submit</StyledBookBtn>
+      <div className="submitModal">
+        <AlertDialogSlide></AlertDialogSlide>
+      </div>
     </form>
   );
 }
