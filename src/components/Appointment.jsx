@@ -1,6 +1,6 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DatePicker, TimePicker } from "@mui/x-date-pickers";
+import { StaticTimePicker, DateCalendar } from "@mui/x-date-pickers";
 import Services from "./Services";
 import "../styles/Appointment.css";
 import dayjs from "dayjs";
@@ -46,17 +46,20 @@ function Appointment() {
       <div className="highlight-heading">Select Time</div>
       <div className="datepicker">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
+          <DateCalendar
             defaultValue={date}
             value={date}
             onChange={(newDate) => {
               console.log(newDate);
               setDate(newDate);
             }}
+            disablePast={true}
           />
-          <TimePicker
+          <StaticTimePicker
             defaultValue={time}
             value={time}
+            disablePast={true}
+            orientation="portrait"
             onChange={(newTime) => {
               console.log(newTime);
               setTime(newTime);

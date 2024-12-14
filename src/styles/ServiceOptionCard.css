@@ -8,6 +8,7 @@
   margin: .5rem;
   box-shadow: 1px 3px 3px rgba(128, 128, 128, 0.5);
   transition: 300ms ease;
+  cursor: pointer;
 }
 .service-card:hover{
   background-color: rgba(147, 180, 58, 0.3);
