@@ -10,7 +10,6 @@
   }
 }
 
-
 .navbar-container{
   display: flex;
   flex-wrap: wrap;
@@ -20,10 +19,9 @@
   padding-top: 1.5rem;
   animation: slide-in 800ms ease-in-out;
 }
-.navbar-container .logo{
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.navbar-container .logo img{
+  width: 200px;
+  height: 100px;
 }
 .navbar-container .hashlinks-container{
   display: flex;

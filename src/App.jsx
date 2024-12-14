@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Introduction from "./components/Introduction";
 import Appointment from "./components/Appointment";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import { GlobalStyle } from "./styles";
 
 const routes = createBrowserRouter([
@@ -18,6 +19,7 @@ function App() {
       <RouterProvider router={routes}></RouterProvider>
       <Appointment></Appointment>
       <Contact></Contact>
+      <Footer></Footer>
     </>
   );
 }
