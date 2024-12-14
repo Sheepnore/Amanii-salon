@@ -14,8 +14,8 @@ function Navbar() {
         <HashLink smooth to="/#appointment">
           Appointment
         </HashLink>
-        <HashLink smooth to="/#contact">
-          Contact
+        <HashLink smooth to="/#location">
+          Location
         </HashLink>
       </div>
     </div>

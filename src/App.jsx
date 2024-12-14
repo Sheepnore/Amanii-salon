@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Introduction from "./components/Introduction";
 import Appointment from "./components/Appointment";
-import Contact from "./components/Contact";
+import Location from "./components/Location";
 import Footer from "./components/Footer";
 import { GlobalStyle } from "./styles";
 
@@ -18,7 +18,7 @@ function App() {
       <GlobalStyle></GlobalStyle>
       <RouterProvider router={routes}></RouterProvider>
       <Appointment></Appointment>
-      <Contact></Contact>
+      <Location></Location>
       <Footer></Footer>
     </>
   );

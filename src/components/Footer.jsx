@@ -1,26 +1,29 @@
 import "../styles/Footer.css";
-import logo from "../assets/hairsalon_logo_horizontal_v5.png";
+import insta_svg from "../assets/instagram-color.svg";
+import facebook_svg from "../assets/facebook-color.svg";
 function Footer() {
   return (
     <div className="Footer footer-container" id="footer">
-      <div className="main-links-container">
-        <div className="logo">
-          <img src={logo} alt="" />
+      <div className="mainInfo-container">
+        <div>
+          <h3>聯絡負責人 吉田直樹</h3>
+          <p>PHONE: +8860000000000</p>
+          <p>EMAIL: a0981114049@gmail.com</p>
         </div>
-
-        <div className="links-container">
-          <h1>阿曼玉沙龍</h1>
-          <div className="links">
-            <div>About Us</div>
-            <div>Social</div>
-          </div>
+        <div>
+          <h3>社群媒體</h3>
+          <a href="https://www.instagram.com/a0981114049/">
+            <img src={insta_svg} alt="" />
+          </a>
+          <a href="https://www.facebook.com/fashion.salon.design">
+            <img src={facebook_svg} alt="" />
+          </a>
         </div>
       </div>
 
       <div className="copyright-container">
-        <div>Copyright © 阿曼玉沙龍</div>
-        <div>Terms of Serivce</div>
-        <div>Back To Top</div>
+        <div>Copyright © 阿曼玉沙龍 All Right Reserved</div>
+        <div>Back to Top</div>
       </div>
     </div>
   );

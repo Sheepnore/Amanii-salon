@@ -1,8 +1,8 @@
-import "../styles/Contact.css";
+import "../styles/Location.css";
 
-function Contact() {
+function Location() {
   return (
-    <div className="Contact" id="contact">
+    <div className="Location" id="location">
       <h1 className="heading">Salon Location</h1>
       <div className="location-info">
         <iframe
@@ -25,4 +25,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Location;
