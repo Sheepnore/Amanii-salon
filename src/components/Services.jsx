@@ -14,7 +14,7 @@ function Services({ serviceSelected, setServiceSelected }) {
 
   return (
     <div className="services" id="services">
-      <div className="highlight-heading">Select Service</div>
+      <div className="highlight-heading">1. Select Service</div>
       <div className="cards-container">
         {services.map((service) => {
           return (

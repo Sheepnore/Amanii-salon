@@ -23,7 +23,7 @@ function ServiceOptionCard({
 
   return (
     <div
-      className="service-card"
+      className={isChecked ? "service-card checked" : "service-card"}
       onClick={() => {
         setIsChecked(!isChecked);
       }}
