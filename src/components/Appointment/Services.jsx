@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import "../styles/Services.css";
+import "../../styles/Services.css";
 import ServiceOptionCard from "./ServiceOptionCard";
 
 function Services({ serviceSelected, setServiceSelected }) {
@@ -13,7 +13,7 @@ function Services({ serviceSelected, setServiceSelected }) {
   ];
 
   return (
-    <div className="services" id="services">
+    <div className="Services" id="services">
       <div className="highlight-heading">1. Select Service</div>
       <div className="cards-container">
         {services.map((service) => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/ServiceOptionCard.css";
+import "../../styles/ServiceOptionCard.css";
 
 function ServiceOptionCard({
   serviceObj,

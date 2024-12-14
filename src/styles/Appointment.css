@@ -6,42 +6,11 @@
   align-items: center;
 }
 .Appointment{
-  display: flex;
-  padding-inline: var(--page-padding-inline);
-  flex-direction: column;
-  padding-bottom: 2rem;
-}
-.Appointment .datepicker{
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr;
-  place-items: center;
-  margin: 1rem 0;
-}
-.Appointment .datepicker > *{
-  border: 1px solid gray;
-}
-/* user input */
-.Appointment .user-info{
-}
-.Appointment .info-inputs{
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-}
-.Appointment .info-inputs input{
-  padding: 1rem;
-  border: .1px solid gray;
-  border-radius: 8px;
-  margin: .5rem;
-}
-.Appointment .info-inputs input:valid{
-  background: #ffff;
-}
-.Appointment .info-inputs input:invalid{
-  background: rgba(255, 179, 179, 0.357);
-}
-/* submit modal */
-.Appointment .submitModal{
+  grid-template-rows: 1fr 1fr; */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding-inline: var(--page-padding-inline);
+  padding-bottom: 2rem;
 }

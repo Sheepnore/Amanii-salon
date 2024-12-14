@@ -25,7 +25,7 @@ const StyledButton = styled.button`
 `;
 
 function CallToActionBtn() {
-  return <StyledButton>Book Now</StyledButton>;
+  return <StyledButton>立即預約</StyledButton>;
 }
 
 export default CallToActionBtn;

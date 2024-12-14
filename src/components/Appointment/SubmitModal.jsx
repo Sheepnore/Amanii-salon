@@ -6,12 +6,13 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
+import "../../styles/SubmitModal.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide() {
+export default function SubmitModal() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -23,8 +24,12 @@ export default function AlertDialogSlide() {
   };
 
   return (
-    <>
-      <Button variant="outlined" onClick={handleClickOpen}>
+    <div className="SubmitModal">
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        className="submitBtn"
+      >
         Submit
       </Button>
       <Dialog
@@ -48,6 +53,6 @@ export default function AlertDialogSlide() {
           </Button>
         </DialogActions>
       </Dialog>
-    </>
+    </div>
   );
 }

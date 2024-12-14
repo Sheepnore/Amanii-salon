@@ -1,0 +1,35 @@
+.UserInputs{
+  background-color: rgba(253, 226, 190, 0.1);
+  margin-top: 2rem;
+  border: .2px solid rgb(100, 70, 30);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.1);
+} 
+
+.UserInputs .highlight-heading{
+  background-color: #daa66e8d;
+  color: rgb(100, 70, 30);
+  font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding:.8rem;
+  border-radius: 10px;
+}
+.UserInputs .info-inputs{
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.UserInputs .info-inputs input{
+  padding: 1rem;
+  border: .1px solid gray;
+  border-radius: 8px;
+  margin: .5rem;
+}
+.UserInputs .info-inputs input:valid{
+  background: #ffff;
+}
+.UserInputs .info-inputs input:invalid{
+  background: rgba(255, 179, 179, 0.357);
+}

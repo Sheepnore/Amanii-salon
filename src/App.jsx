@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Introduction from "./components/Introduction";
-import Appointment from "./components/Appointment";
+import Appointment from "./components/Appointment/Appointment";
 import Location from "./components/Location";
 import Footer from "./components/Footer";
 import { GlobalStyle } from "./styles";

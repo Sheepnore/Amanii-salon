@@ -1,0 +1,23 @@
+.SubmitModal{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.SubmitModal .submitBtn{
+  background-color: rgb(100, 70, 30);
+  align-self: center;
+  color: #ffff;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 300ms ease;
+  box-shadow: 2px 3px 3px gray;
+  &:hover {
+    opacity: 0.8;
+    transition: 300ms ease;
+    transform: scale(1.1);
+  }
+}

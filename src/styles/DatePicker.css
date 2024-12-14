@@ -1,10 +1,11 @@
-.Services{
+.DatePicker{
   background-color: rgba(253, 226, 190, 0.1);
-  border: .1px solid rgb(100, 70, 30);
+  margin-top: 2rem;
+  border: .2px solid rgb(100, 70, 30);
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.1);
 }
-.Services .highlight-heading{
+.DatePicker .highlight-heading{
   background-color: #daa66e8d;
   color: rgb(100, 70, 30);
   font-weight: bold;
@@ -14,7 +15,15 @@
   padding:.8rem;
   border-radius: 10px;
 }
-.Services .cards-container{
+.datepicker-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  margin: 1rem 0;
+}
+.datepicker-container .dateCalendar{
+  border: .5px solid rgb(100, 70, 30);
+  border-radius: 12px;
+  box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.1);
+
 }
