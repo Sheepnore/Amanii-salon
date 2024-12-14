@@ -1,4 +1,5 @@
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import logo from "../assets/hairsalon_logo_horizontal_v5.png";
 function Navbar() {
@@ -11,9 +12,7 @@ function Navbar() {
         <HashLink smooth to="/">
           Home
         </HashLink>
-        <HashLink smooth to="/#appointment">
-          Appointment
-        </HashLink>
+        <Link to="/appointment">Appointment</Link>
         <HashLink smooth to="/#location">
           Location
         </HashLink>

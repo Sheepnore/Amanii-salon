@@ -1,6 +1,7 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { StaticTimePicker, DateCalendar } from "@mui/x-date-pickers";
+import { Link } from "react-router-dom";
 import Services from "./Services";
 import "../styles/Appointment.css";
 import dayjs from "dayjs";
@@ -8,6 +9,7 @@ import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../config/firebase";
 import AlertDialogSlide from "./SubmitModal";
+import backToHome_svg from "../assets/back-to-home.svg";
 
 function Appointment() {
   const [serviceSelected, setServiceSelected] = useState([]);
@@ -38,80 +40,92 @@ function Appointment() {
   };
 
   return (
-    <form className="Appointment" id="appointment" onSubmit={createAppointment}>
-      <Services
-        setServiceSelected={setServiceSelected}
-        serviceSelected={serviceSelected}
-      ></Services>
-      <div className="highlight-heading">Select Time</div>
-      <div className="datepicker">
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar
-            defaultValue={date}
-            value={date}
-            onChange={(newDate) => {
-              console.log(newDate);
-              setDate(newDate);
-            }}
-            disablePast={true}
-          />
-          <StaticTimePicker
-            defaultValue={time}
-            value={time}
-            disablePast={true}
-            orientation="portrait"
-            onChange={(newTime) => {
-              console.log(newTime);
-              setTime(newTime);
-            }}
-          />
-        </LocalizationProvider>
+    <>
+      <div className="top-section">
+        <Link to="/" className="link">
+          <img src={backToHome_svg} />
+          <span>回到首頁</span>
+        </Link>
       </div>
-      <div className="highlight-heading">Your contact information</div>
-      <div className="user-info">
-        <div className="info-inputs">
-          <input
-            type="text"
-            className="firstName"
-            placeholder="Your first name"
-            defaultValue={null}
-            onChange={(e) => {
-              setFullName((newVal) => ({
-                ...fullName,
-                firstName: e.target.value,
-              }));
-            }}
-            pattern="[\u4e00-\u9fff]{1,5}"
-          />
-          <input
-            type="text"
-            className="lastName"
-            placeholder="Your last name"
-            defaultValue={null}
-            onChange={(e) => {
-              setFullName((newVal) => ({
-                ...fullName,
-                lastName: e.target.value,
-              }));
-            }}
-            pattern="[\u4e00-\u9fff]{1,5}"
-          />
-          <input
-            type="tel"
-            className="phone"
-            placeholder="Phone number for contact"
-            defaultValue={null}
-            onChange={(e) => {
-              setPhone(() => e.target.value);
-            }}
-            pattern="^0\d{9}"
-          />
+      <form
+        className="Appointment"
+        id="appointment"
+        onSubmit={createAppointment}
+      >
+        <Services
+          setServiceSelected={setServiceSelected}
+          serviceSelected={serviceSelected}
+        ></Services>
+        <div className="highlight-heading">Select Time</div>
+        <div className="datepicker">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DateCalendar
+              defaultValue={date}
+              value={date}
+              onChange={(newDate) => {
+                console.log(newDate);
+                setDate(newDate);
+              }}
+              disablePast={true}
+            />
+            <StaticTimePicker
+              defaultValue={time}
+              value={time}
+              disablePast={true}
+              orientation="portrait"
+              onChange={(newTime) => {
+                console.log(newTime);
+                setTime(newTime);
+              }}
+            />
+          </LocalizationProvider>
         </div>
-      </div>
-      <div className="submitModal">
-        <AlertDialogSlide></AlertDialogSlide>
-      </div>
-    </form>
+        <div className="highlight-heading">Your contact information</div>
+        <div className="user-info">
+          <div className="info-inputs">
+            <input
+              type="text"
+              className="firstName"
+              placeholder="Your first name"
+              defaultValue={null}
+              onChange={(e) => {
+                setFullName((newVal) => ({
+                  ...fullName,
+                  firstName: e.target.value,
+                }));
+              }}
+              pattern="[\u4e00-\u9fff]{1,5}"
+            />
+            <input
+              type="text"
+              className="lastName"
+              placeholder="Your last name"
+              defaultValue={null}
+              onChange={(e) => {
+                setFullName((newVal) => ({
+                  ...fullName,
+                  lastName: e.target.value,
+                }));
+              }}
+              pattern="[\u4e00-\u9fff]{1,5}"
+            />
+            <input
+              type="tel"
+              className="phone"
+              placeholder="Phone number for contact"
+              defaultValue={null}
+              onChange={(e) => {
+                setPhone(() => e.target.value);
+              }}
+              pattern="^0\d{9}"
+            />
+          </div>
+        </div>
+        <div className="submitModal">
+          <AlertDialogSlide></AlertDialogSlide>
+        </div>
+      </form>
+    </>
   );
 }
 export default Appointment;

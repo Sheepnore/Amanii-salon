@@ -1,13 +1,24 @@
+.top-section{
+  padding: 2rem;
+}
+.top-section .link{
+  display: flex;
+  align-items: center;
+}
 .Appointment{
   display: flex;
   padding-inline: var(--page-padding-inline);
   flex-direction: column;
+  padding-bottom: 2rem;
 }
 .Appointment .datepicker{
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
   margin: 1rem 0;
+}
+.Appointment .datepicker > *{
+  border: 1px solid gray;
 }
 /* user input */
 .Appointment .user-info{

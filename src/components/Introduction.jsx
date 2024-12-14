@@ -22,7 +22,7 @@ function Introduction() {
           <CallToActionBtn></CallToActionBtn>
         </div>
         <div className="img">
-          <img src={introimg} alt="" />
+          <img src={introimg} />
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     margin:0;
     padding:0;
-    display: flex;
+    display: grid;
   }
   a{
     text-decoration: none
