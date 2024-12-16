@@ -19,14 +19,26 @@ function Appointment() {
   const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState(dayjs());
 
+  const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
-      const q = query(collection(db, "appointment"), where("date", "==", true));
+      const q = query(
+        collection(db, "appointments"),
+        where("date", "==", date.format("YYYY/MM/DD"))
+      );
       const querySnapshot = await getDocs(q);
-      console.log(querySnapshot);
+      querySnapshot.forEach((doc) => {
+        setSelectedDateAppointment([doc.data()]);
+      });
     }
     fetchData();
-  });
+    return () => {
+      setSelectedDateAppointment([]);
+    };
+  }, [date]);
+
+  console.log(selectedDateAppointment);
 
   // Add appointment to the db
   const createAppointment = async (e) => {
