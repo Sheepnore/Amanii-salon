@@ -1,7 +1,8 @@
 import "../../styles/DatePicker.css";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateCalendar } from "@mui/x-date-pickers";
+import { DateCalendar as MUIDateCalendar } from "@mui/x-date-pickers";
+import TimeSlots from "./TimeSlots";
 
 function DatePicker({ date, time, setDate, setTime }) {
   return (
@@ -9,7 +10,7 @@ function DatePicker({ date, time, setDate, setTime }) {
       <div className="highlight-heading">2. Select Time</div>
       <div className="datepicker-container">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateCalendar
+          <MUIDateCalendar
             className="dateCalendar"
             defaultValue={date}
             value={date}
@@ -20,6 +21,7 @@ function DatePicker({ date, time, setDate, setTime }) {
             disablePast={true}
           />
         </LocalizationProvider>
+        <TimeSlots />
       </div>
     </div>
   );

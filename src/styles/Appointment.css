@@ -13,4 +13,5 @@
   flex-direction: column;
   padding-inline: var(--page-padding-inline);
   padding-bottom: 2rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

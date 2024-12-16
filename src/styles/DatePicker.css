@@ -1,9 +1,9 @@
 .DatePicker{
-  background-color: rgba(253, 226, 190, 0.1);
+  max-width: 100%;
+  background-color: rgba(253, 226, 190, 0.2);
   margin-top: 2rem;
-  border: .2px solid rgb(100, 70, 30);
   border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.1);
+  box-shadow: 0 0 30px 1px rgba(128, 128, 128, 0.2);
 }
 .DatePicker .highlight-heading{
   background-color: #daa66e8d;
@@ -16,14 +16,14 @@
   border-radius: 10px;
 }
 .datepicker-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem 2rem 2rem 2rem;
+  gap:1rem
 }
 .datepicker-container .dateCalendar{
-  border: .5px solid rgb(100, 70, 30);
-  border-radius: 12px;
-  box-shadow: 0 0 10px 1px rgba(128, 128, 128, 0.1);
-
+  background-color: #ffff;
+  margin: 0;
+  box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.2);
 }

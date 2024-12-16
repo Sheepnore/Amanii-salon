@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import Services from "./Services";
 import "../../styles/Appointment.css";
 import dayjs from "dayjs";
-import { useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import backToHome_svg from "../../assets/back-to-home.svg";
 import DatePicker from "./DatePicker";
@@ -18,6 +18,15 @@ function Appointment() {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState(dayjs());
+
+  useEffect(() => {
+    async function fetchData() {
+      const q = query(collection(db, "appointment"), where("date", "==", true));
+      const querySnapshot = await getDocs(q);
+      console.log(querySnapshot);
+    }
+    fetchData();
+  });
 
   // Add appointment to the db
   const createAppointment = async (e) => {
