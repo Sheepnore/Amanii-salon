@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import backToHome_svg from "../../assets/back-to-home.svg";
+import AlertDialogSlide from "./SubmitModal";
 import DatePicker from "./DatePicker";
 import UserInputs from "./UserInputs";
 
@@ -104,6 +105,9 @@ function Appointment() {
               setPhone={setPhone}
               setFullName={setFullName}
             />
+            <div className="submitModal">
+              <AlertDialogSlide></AlertDialogSlide>
+            </div>
           </form>
         </>
       ) : (

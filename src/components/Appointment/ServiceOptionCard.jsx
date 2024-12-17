@@ -33,6 +33,7 @@ function ServiceOptionCard({
         onChange={handleSelectService}
         className="service-checkbox"
         checked={isChecked}
+        hidden
       />
       <span className="service-name">{serviceObj.service}</span>
       <span className="service-cost">Cost: {serviceObj.price_NTD}</span>

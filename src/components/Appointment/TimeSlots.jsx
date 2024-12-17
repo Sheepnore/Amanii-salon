@@ -1,5 +1,9 @@
 import "../../styles/TimeSlots.css";
+import { useState } from "react";
+
 function TimeSlots({ setTime, selectedDateAppointment }) {
+  const [selectedTime, setSelectedTime] = useState(null);
+
   const timeslots = [
     { time: "9:00", isAvailable: true },
     { time: "10:00", isAvailable: true },
@@ -14,6 +18,8 @@ function TimeSlots({ setTime, selectedDateAppointment }) {
     { time: "19:00", isAvailable: true },
     { time: "20:00", isAvailable: true },
   ];
+
+  // Mark unavailable times based on selectedDateAppointment
   selectedDateAppointment.forEach((slotData) => {
     timeslots.forEach((slot) => {
       if (slot.time === slotData.time) {
@@ -27,21 +33,29 @@ function TimeSlots({ setTime, selectedDateAppointment }) {
       <div>選擇預約時間：</div>
       <div className="timeslots-container">
         {timeslots.map((slot) => (
-          <button
-            className="slot"
+          <div
             key={slot.time}
-            disabled={!slot.isAvailable}
+            className={`slot ${
+              !slot.isAvailable
+                ? "disabled"
+                : selectedTime === slot.time
+                ? "selected"
+                : ""
+            }`}
             onClick={(e) => {
               e.preventDefault();
-              setTime(slot.time);
-              console.log(slot.time);
+              if (slot.isAvailable) {
+                setSelectedTime(slot.time);
+                setTime(slot.time);
+              }
             }}
           >
             {slot.time}
-          </button>
+          </div>
         ))}
       </div>
     </div>
   );
 }
+
 export default TimeSlots;

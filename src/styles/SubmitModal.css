@@ -11,13 +11,15 @@
   border: none;
   border-radius: 12px;
   padding: 1rem;
+  margin-bottom: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: 300ms ease;
-  box-shadow: 2px 3px 3px gray;
+  box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.5);
   &:hover {
     opacity: 0.8;
     transition: 300ms ease;
     transform: scale(1.1);
   }
+
 }

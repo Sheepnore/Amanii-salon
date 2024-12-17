@@ -15,6 +15,9 @@
   padding:.8rem;
   border-radius: 10px;
 }
+.UserInputs .user-info{
+  margin-bottom: 1rem;
+}
 .UserInputs .info-inputs{
   padding: 0 1rem;
   display: grid;

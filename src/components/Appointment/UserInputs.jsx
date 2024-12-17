@@ -1,5 +1,4 @@
 import "../../styles/UserInputs.css";
-import AlertDialogSlide from "./SubmitModal";
 
 function UserInputs({ fullName, setFullName, setPhone }) {
   return (
@@ -44,9 +43,6 @@ function UserInputs({ fullName, setFullName, setPhone }) {
             pattern="^0\d{9}"
           />
         </div>
-      </div>
-      <div className="submitModal">
-        <AlertDialogSlide></AlertDialogSlide>
       </div>
     </div>
   );
