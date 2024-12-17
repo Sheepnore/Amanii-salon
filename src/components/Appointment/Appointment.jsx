@@ -27,17 +27,21 @@ function Appointment() {
         collection(db, "appointments"),
         where("date", "==", date.format("YYYY/MM/DD"))
       );
+
+      // placeholder array for getting docs out of querySnapshot
+      let temp = [];
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
-        setSelectedDateAppointment([doc.data()]);
+        temp.push(doc.data());
       });
+      setSelectedDateAppointment(temp);
     }
     fetchData();
+
     return () => {
       setSelectedDateAppointment([]);
     };
   }, [date]);
-
   console.log(selectedDateAppointment);
 
   // Add appointment to the db
