@@ -1,37 +1,44 @@
 import "../../styles/TimeSlots.css";
-function TimeSlots({ time, setTime }) {
+function TimeSlots({ setTime, selectedDateAppointment }) {
   const timeslots = [
-    { time: "9:00 am", isAvailable: true },
-    { time: "10:00 am", isAvailable: true },
-    { time: "11:00 am", isAvailable: true },
-    { time: "12:00 pm", isAvailable: true },
-    { time: "1:00 pm ", isAvailable: true },
-    { time: "2:00 pm", isAvailable: false },
-    { time: "3:00 pm", isAvailable: true },
-    { time: "4:00 pm", isAvailable: false },
-    { time: "5:00 pm", isAvailable: true },
-    { time: "6:00 pm", isAvailable: true },
-    { time: "7:00 pm", isAvailable: true },
-    { time: "8:00 pm", isAvailable: true },
+    { time: "9:00", isAvailable: true },
+    { time: "10:00", isAvailable: true },
+    { time: "11:00", isAvailable: true },
+    { time: "12:00", isAvailable: true },
+    { time: "13:00", isAvailable: true },
+    { time: "14:00", isAvailable: true },
+    { time: "15:00", isAvailable: true },
+    { time: "16:00", isAvailable: true },
+    { time: "17:00", isAvailable: true },
+    { time: "18:00", isAvailable: true },
+    { time: "19:00", isAvailable: true },
+    { time: "20:00", isAvailable: true },
   ];
+  selectedDateAppointment.forEach((slotData) => {
+    timeslots.forEach((slot) => {
+      if (slot.time === slotData.time) {
+        slot.isAvailable = false;
+      }
+    });
+  });
 
   return (
     <div className="TimeSlots">
       <div>選擇預約時間：</div>
       <div className="timeslots-container">
         {timeslots.map((slot) => (
-          <div
-            className={
-              slot.isAvailable
-                ? slot.isChecked
-                  ? "slot checked"
-                  : "slot"
-                : "slot disabled"
-            }
+          <button
+            className="slot"
             key={slot.time}
+            disabled={!slot.isAvailable}
+            onClick={(e) => {
+              e.preventDefault();
+              setTime(slot.time);
+              console.log(slot.time);
+            }}
           >
             {slot.time}
-          </div>
+          </button>
         ))}
       </div>
     </div>

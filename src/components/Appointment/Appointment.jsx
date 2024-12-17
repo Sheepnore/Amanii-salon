@@ -17,24 +17,29 @@ function Appointment() {
   });
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(dayjs());
-  const [time, setTime] = useState(dayjs());
-
+  const [time, setTime] = useState("00:00");
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-      const q = query(
-        collection(db, "appointments"),
-        where("date", "==", date.format("YYYY/MM/DD"))
-      );
+      try {
+        const q = query(
+          collection(db, "appointments"),
+          where("date", "==", date.format("YYYY/MM/DD"))
+        );
 
-      // placeholder array for getting docs out of querySnapshot
-      let temp = [];
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        temp.push(doc.data());
-      });
-      setSelectedDateAppointment(temp);
+        // placeholder array for getting docs out of querySnapshot
+        let temp = [];
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          temp.push(doc.data());
+        });
+        setSelectedDateAppointment(temp);
+        setIsLoaded(true);
+      } catch (err) {
+        console.error(err);
+      }
     }
     fetchData();
 
@@ -42,20 +47,26 @@ function Appointment() {
       setSelectedDateAppointment([]);
     };
   }, [date]);
-  console.log(selectedDateAppointment);
 
   // Add appointment to the db
   const createAppointment = async (e) => {
     // when triggers form submit event, the default action is reloading the page. To prevent reloading from happening, use e.preventDefault()
     e.preventDefault();
+
+    const newAppointmentObj = {
+      name: fullName,
+      date: date.format("YYYY/MM/DD"),
+      time: time,
+      service: serviceSelected,
+      phone: phone,
+    };
+    console.log(newAppointmentObj);
+
     try {
-      const ref = await addDoc(collection(db, "appointments"), {
-        name: fullName,
-        date: date.format("YYYY/MM/DD"),
-        time: time.format("HH:mm"),
-        service: serviceSelected,
-        phone: phone,
-      });
+      const ref = await addDoc(
+        collection(db, "appointments"),
+        newAppointmentObj
+      );
       console.log(ref);
     } catch (err) {
       console.error("Error adding appointment:", err);
@@ -64,34 +75,40 @@ function Appointment() {
 
   return (
     <>
-      <div className="top-section">
-        <Link to="/" className="link">
-          <img src={backToHome_svg} />
-          <span>回到首頁</span>
-        </Link>
-      </div>
+      {isLoaded ? (
+        <>
+          <div className="top-section">
+            <Link to="/" className="link">
+              <img src={backToHome_svg} alt="Back to Home" />
+              <span>回到首頁</span>
+            </Link>
+          </div>
 
-      <form
-        className="Appointment"
-        id="appointment"
-        onSubmit={createAppointment}
-      >
-        <Services
-          setServiceSelected={setServiceSelected}
-          serviceSelected={serviceSelected}
-        ></Services>
-        <DatePicker
-          date={date}
-          time={time}
-          setDate={setDate}
-          setTime={setTime}
-        ></DatePicker>
-        <UserInputs
-          fullName={fullName}
-          setPhone={setPhone}
-          setFullName={setFullName}
-        ></UserInputs>
-      </form>
+          <form
+            className="Appointment"
+            id="appointment"
+            onSubmit={createAppointment}
+          >
+            <Services
+              setServiceSelected={setServiceSelected}
+              serviceSelected={serviceSelected}
+            />
+            <DatePicker
+              date={date}
+              setDate={setDate}
+              setTime={setTime}
+              selectedDateAppointment={selectedDateAppointment}
+            />
+            <UserInputs
+              fullName={fullName}
+              setPhone={setPhone}
+              setFullName={setFullName}
+            />
+          </form>
+        </>
+      ) : (
+        <div>載入中...</div>
+      )}
     </>
   );
 }
