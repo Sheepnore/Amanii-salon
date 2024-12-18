@@ -14,5 +14,16 @@ const GlobalStyle = createGlobalStyle`
   *{
     box-sizing: border-box;
   }
+  @keyframes loading-transition {
+  from {
+    opacity: 0;
+    transform:translateX(-50px)
+  }
+  to{
+    opacity: 1;
+    transform:translate(0)
+  }
+}
+  
 `
 export default GlobalStyle;

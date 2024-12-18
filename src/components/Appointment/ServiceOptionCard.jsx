@@ -5,6 +5,7 @@ function ServiceOptionCard({
   serviceObj,
   setServiceSelected,
   serviceSelected,
+  setBoxesChecked,
 }) {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -20,12 +21,21 @@ function ServiceOptionCard({
       setServiceSelected([...serviceSelected, serviceObj.service]);
     }
   };
+  const countBoxesChecked = (e) => {
+    if (!e.target.classList.contains("checked")) {
+      setBoxesChecked((count) => count + 1);
+    } else {
+      setBoxesChecked((count) => count - 1);
+    }
+    console.log(e.target);
+  };
 
   return (
     <div
       className={isChecked ? "service-card checked" : "service-card"}
-      onClick={() => {
+      onClick={(e) => {
         setIsChecked(!isChecked);
+        countBoxesChecked(e);
       }}
     >
       <input
@@ -35,8 +45,12 @@ function ServiceOptionCard({
         checked={isChecked}
         hidden
       />
-      <span className="service-name">{serviceObj.service}</span>
-      <span className="service-cost">Cost: {serviceObj.price_NTD}</span>
+      <span className={`service-name ${isChecked ? "checked" : ""}`}>
+        {serviceObj.service}
+      </span>
+      <span className={`service-cost ${isChecked ? "checked" : ""}`}>
+        Cost: {serviceObj.price_NTD}
+      </span>
     </div>
   );
 }

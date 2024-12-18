@@ -11,9 +11,13 @@
   cursor: pointer;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.service-card:hover{
+  transform: scale(1.05);
+}
 .service-card.checked{
-  background-color: rgba(128, 128, 128, 0.2);
-  transition: 300ms ease;
+  background-color: #774d35;
+  transition: 400ms ease;
+  color: white;
 }
 .service-card .service-checkbox{
   width: 1rem;

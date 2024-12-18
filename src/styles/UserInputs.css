@@ -3,6 +3,8 @@
   margin-top: 2rem;
   border-radius: 10px;
   box-shadow: 0 0 30px 1px rgba(128, 128, 128, 0.2);
+  animation: loading-transition 1000ms ease 1 normal both;
+  animation-delay: 600ms;
 } 
 
 .UserInputs .highlight-heading{

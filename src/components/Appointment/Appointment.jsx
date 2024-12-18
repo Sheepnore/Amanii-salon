@@ -22,6 +22,16 @@ function Appointment() {
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const [boxesChecked, setBoxesChecked] = useState(0);
+  console.log(boxesChecked);
+  const isOneBoxChecked = (boxesChecked) => {
+    if (boxesChecked < 1) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -93,6 +103,7 @@ function Appointment() {
             <Services
               setServiceSelected={setServiceSelected}
               serviceSelected={serviceSelected}
+              setBoxesChecked={setBoxesChecked}
             />
             <DatePicker
               date={date}
@@ -106,7 +117,9 @@ function Appointment() {
               setFullName={setFullName}
             />
             <div className="submitModal">
-              <AlertDialogSlide></AlertDialogSlide>
+              <AlertDialogSlide
+                isOneBoxChecked={isOneBoxChecked(boxesChecked)}
+              ></AlertDialogSlide>
             </div>
           </form>
         </>
