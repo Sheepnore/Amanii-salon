@@ -18,12 +18,11 @@ function Appointment() {
   });
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(dayjs());
-  const [time, setTime] = useState("00:00");
+  const [time, setTime] = useState(null);
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [boxesChecked, setBoxesChecked] = useState(0);
-  console.log(boxesChecked);
   const isOneBoxChecked = (boxesChecked) => {
     if (boxesChecked < 1) {
       return false;
@@ -119,6 +118,7 @@ function Appointment() {
             <div className="submitModal">
               <AlertDialogSlide
                 isOneBoxChecked={isOneBoxChecked(boxesChecked)}
+                time={time}
               ></AlertDialogSlide>
             </div>
           </form>

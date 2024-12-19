@@ -23,11 +23,11 @@
     transition: 300ms ease;
     transform: scale(1.1);
   }
-}
-.SubmitModal .submitBtn.disabled{
-  transform: none;
-  opacity: 1;
-  background-color: gray;
-  cursor: not-allowed;
-  color: rgba(55, 55, 55, 0.6);
+  &:disabled{
+    transform: none;
+    opacity: 1;
+    background-color: gray;
+    cursor: not-allowed;
+    color: rgb(55, 55, 55);
+  }
 }

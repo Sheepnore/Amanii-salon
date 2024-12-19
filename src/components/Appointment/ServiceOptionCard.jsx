@@ -8,7 +8,7 @@ function ServiceOptionCard({
   setBoxesChecked,
 }) {
   const [isChecked, setIsChecked] = useState(false);
-
+  console.log(serviceSelected);
   const handleSelectService = () => {
     if (serviceSelected.includes(serviceObj.service)) {
       // Remove the service from the selected list
@@ -21,13 +21,13 @@ function ServiceOptionCard({
       setServiceSelected([...serviceSelected, serviceObj.service]);
     }
   };
+
   const countBoxesChecked = (e) => {
     if (!e.target.classList.contains("checked")) {
       setBoxesChecked((count) => count + 1);
     } else {
       setBoxesChecked((count) => count - 1);
     }
-    console.log(e.target);
   };
 
   return (
@@ -36,21 +36,30 @@ function ServiceOptionCard({
       onClick={(e) => {
         setIsChecked(!isChecked);
         countBoxesChecked(e);
+        handleSelectService();
       }}
     >
       <input
         type="checkbox"
-        onChange={handleSelectService}
+        value={serviceObj.service}
+        name="services"
+        id={serviceObj.service}
         className="service-checkbox"
         checked={isChecked}
-        hidden
+        readOnly
       />
-      <span className={`service-name ${isChecked ? "checked" : ""}`}>
+      <label
+        className={`service-name ${isChecked ? "checked" : ""}`}
+        id={serviceObj.service}
+      >
         {serviceObj.service}
-      </span>
-      <span className={`service-cost ${isChecked ? "checked" : ""}`}>
+      </label>
+      <label
+        className={`service-cost ${isChecked ? "checked" : ""}`}
+        id={serviceObj.service}
+      >
         Cost: {serviceObj.price_NTD}
-      </span>
+      </label>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function SubmitModal({ isOneBoxChecked }) {
+export default function SubmitModal({ isOneBoxChecked, time }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -22,14 +22,13 @@ export default function SubmitModal({ isOneBoxChecked }) {
   const handleClose = () => {
     setOpen(false);
   };
-  console.log(isOneBoxChecked);
   return (
     <div className="SubmitModal">
       <Button
         variant="outlined"
         onClick={handleClickOpen}
         className="submitBtn"
-        disabled={isOneBoxChecked ? false : true}
+        disabled={isOneBoxChecked ? (time ? false : true) : true}
       >
         Submit
       </Button>
