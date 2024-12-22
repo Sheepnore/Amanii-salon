@@ -13,10 +13,9 @@ function Introduction() {
             We help you achieve a better version of yourself
           </h1>
           <div className="subheadings">
-            <p className="subheading-one">Why AppointmentSys?</p>
+            <p className="subheading-one">為什麼阿曼玉沙龍?</p>
             <p className="subheading-two">
-              Because we're the best of the best. We specialize in helping
-              people become more confident by bringing out their innate beauty.
+              因為我們是全台灣最好的沙龍。我們專門幫助人們變得更加自信，展現他們與生俱來的美麗。
             </p>
           </div>
           <CallToActionBtn></CallToActionBtn>

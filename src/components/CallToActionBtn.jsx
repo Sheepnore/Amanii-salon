@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 const StyledButton = styled.button`
   background-color: rgb(100, 70, 30);
   align-self: center;
@@ -25,7 +25,12 @@ const StyledButton = styled.button`
 `;
 
 function CallToActionBtn() {
-  return <StyledButton>立即預約</StyledButton>;
+  const navigate = useNavigate();
+  return (
+    <StyledButton onClick={() => navigate("/appointment")}>
+      立即預約
+    </StyledButton>
+  );
 }
 
 export default CallToActionBtn;

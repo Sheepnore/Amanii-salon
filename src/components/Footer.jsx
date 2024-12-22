@@ -7,8 +7,8 @@ function Footer() {
       <div className="mainInfo-container">
         <div>
           <h3>聯絡負責人 吉田直樹</h3>
-          <p>PHONE: +8860000000000</p>
-          <p>EMAIL: a0981114049@gmail.com</p>
+          <p>電話: +8860000000000</p>
+          <p>信箱: a0981114049@gmail.com</p>
         </div>
         <div>
           <h3>社群媒體</h3>
@@ -23,7 +23,7 @@ function Footer() {
 
       <div className="copyright-container">
         <div>Copyright © 阿曼玉沙龍 All Right Reserved</div>
-        <div>Back to Top</div>
+        <div>回到頂端</div>
       </div>
     </div>
   );

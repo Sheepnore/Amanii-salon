@@ -10,11 +10,11 @@ function Navbar() {
       </div>
       <div className="hashlinks-container">
         <HashLink smooth to="/">
-          Home
+          首頁
         </HashLink>
-        <Link to="/appointment">Appointment</Link>
+        <Link to="/appointment">預約</Link>
         <HashLink smooth to="/#location">
-          Location
+          地址
         </HashLink>
       </div>
     </div>

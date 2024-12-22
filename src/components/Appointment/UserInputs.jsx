@@ -19,7 +19,7 @@ function UserInputs({ fullName, setFullName, setPhone }) {
             }}
             pattern="[\u4e00-\u9fff]{1,5}"
             required
-            title="請輸入您的姓"
+            title="請輸入您的姓氏"
           />
           <input
             type="text"
@@ -34,7 +34,7 @@ function UserInputs({ fullName, setFullName, setPhone }) {
             }}
             pattern="[\u4e00-\u9fff]{1,5}"
             required
-            title="請輸入您的名"
+            title="請輸入您的名字"
           />
           <input
             type="tel"

@@ -17,10 +17,10 @@
   border-radius: 16px;
 }
 #location .location-info{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center ;
-  column-gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 .address h2{
   padding-bottom: 1rem;
