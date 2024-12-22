@@ -9,20 +9,23 @@ import backToHome_svg from "../../assets/back-to-home.svg";
 import AlertDialogSlide from "./SubmitModal";
 import DatePicker from "./DatePicker";
 import UserInputs from "./UserInputs";
+import { useSucess } from "../SucessSubmitContext";
+import LoadingPage from "./LoadingPage";
 
 function Appointment() {
+  const { setOnAppointmentSucess } = useSucess();
   const [serviceSelected, setServiceSelected] = useState([]);
   const [fullName, setFullName] = useState({
-    firstName: "John",
-    lastName: "Doe",
+    firstName: "",
+    lastName: "",
   });
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(dayjs());
   const [time, setTime] = useState(null);
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
   const [boxesChecked, setBoxesChecked] = useState(0);
+
   const isOneBoxChecked = (boxesChecked) => {
     if (boxesChecked < 1) {
       return false;
@@ -70,7 +73,6 @@ function Appointment() {
       service: serviceSelected,
       phone: phone,
     };
-    console.log(newAppointmentObj);
 
     try {
       const ref = await addDoc(
@@ -97,7 +99,15 @@ function Appointment() {
           <form
             className="Appointment"
             id="appointment"
-            onSubmit={createAppointment}
+            onSubmit={(e) => {
+              createAppointment(e);
+              setOnAppointmentSucess(true);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+            }}
           >
             <Services
               setServiceSelected={setServiceSelected}
@@ -124,7 +134,7 @@ function Appointment() {
           </form>
         </>
       ) : (
-        <div>載入中...</div>
+        <LoadingPage />
       )}
     </>
   );

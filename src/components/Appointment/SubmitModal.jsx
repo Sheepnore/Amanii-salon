@@ -14,7 +14,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function SubmitModal({ isOneBoxChecked, time }) {
   const [open, setOpen] = React.useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -24,14 +23,17 @@ export default function SubmitModal({ isOneBoxChecked, time }) {
   };
   return (
     <div className="SubmitModal">
-      <Button
+      <button
         variant="outlined"
-        onClick={handleClickOpen}
+        onClick={(e) => {
+          e.preventDefault();
+          handleClickOpen();
+        }}
         className="submitBtn"
         disabled={isOneBoxChecked ? (time ? false : true) : true}
       >
-        Submit
-      </Button>
+        預約
+      </button>
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -42,14 +44,20 @@ export default function SubmitModal({ isOneBoxChecked, time }) {
         <DialogTitle>{"Appointments"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Are you sure you want to submit this appointment?
+            您確定要送出該預約嗎？
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>取消</Button>
           {/* associate button's submission event with form using form="appointment"  */}
-          <Button onClick={handleClose} type="submit" form="appointment">
-            Send
+          <Button
+            onClick={() => {
+              handleClose();
+            }}
+            type="submit"
+            form="appointment"
+          >
+            送出
           </Button>
         </DialogActions>
       </Dialog>

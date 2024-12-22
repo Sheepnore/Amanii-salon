@@ -1,53 +1,81 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Navigate,
+} from "react-router-dom";
+import { GlobalStyle } from "./styles";
 import Introduction from "./components/Introduction";
 import Appointment from "./components/Appointment/Appointment";
 import Location from "./components/Location";
 import Footer from "./components/Footer";
-import { GlobalStyle } from "./styles";
+import SucessPage from "./components/Appointment/SuccessPage";
+import {
+  SucessAppointmentProvider,
+  useSucess,
+} from "./components/SucessSubmitContext";
 
-// Create a Layout component that will be used as the main wrapper
-const Layout = () => {
-  return (
-    <>
-      <GlobalStyle />
-      <Outlet />
-    </>
-  );
-};
+function AppRoutes() {
+  const { onAppointmentSucess, setOnAppointmentSucess } = useSucess();
 
-// Home page component (you can add content for the root route)
-const Home = () => {
-  return (
-    <div>
-      <Introduction />
-      <Location />
-      <Footer />
-    </div>
-  );
-};
+  const Layout = () => {
+    return (
+      <>
+        <GlobalStyle />
+        <Outlet />
+      </>
+    );
+  };
 
-// Create the router configuration
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true, // This makes it the default route
-        element: <Home />,
-      },
-      {
-        path: "/appointment",
-        element: <Appointment />,
-      },
-    ],
-  },
-]);
+  const Home = () => {
+    useEffect(() => {
+      setOnAppointmentSucess(false);
+    }, []);
 
-// App component becomes very simple
-function App() {
+    return (
+      <div>
+        <Introduction />
+        <Location />
+        <Footer />
+      </div>
+    );
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true, // This makes it the default route
+          element: <Home />,
+        },
+        {
+          path: "/appointment",
+          element: onAppointmentSucess ? (
+            <Navigate to="/sucessPage" replace />
+          ) : (
+            <Appointment />
+          ),
+        },
+        {
+          path: "/sucessPage",
+          element: <SucessPage />,
+        },
+      ],
+    },
+  ]);
   return <RouterProvider router={router} />;
+}
+
+function App() {
+  // Create the router configuration
+  return (
+    <SucessAppointmentProvider>
+      <AppRoutes />
+    </SucessAppointmentProvider>
+  );
 }
 
 export default App;
