@@ -1,6 +1,6 @@
-import "../styles/Footer.css";
-import insta_svg from "../assets/instagram-color.svg";
-import facebook_svg from "../assets/facebook-color.svg";
+import "../../styles/Footer.css";
+import insta_svg from "../../assets/instagram-color.svg";
+import facebook_svg from "../../assets/facebook-color.svg";
 function Footer() {
   return (
     <div className="Footer footer-container" id="footer">

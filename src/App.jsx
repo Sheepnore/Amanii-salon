@@ -6,10 +6,11 @@ import {
   Navigate,
 } from "react-router-dom";
 import { GlobalStyle } from "./styles";
-import Introduction from "./components/Introduction";
+import Introduction from "./components/Home/Introduction";
 import Appointment from "./components/Appointment/Appointment";
-import Location from "./components/Location";
-import Footer from "./components/Footer";
+import Location from "./components/Home/Location";
+import Footer from "./components/Home/Footer";
+import Navbar from "./components/Home/Navbar";
 import SucessPage from "./components/Appointment/SuccessPage";
 import {
   SucessAppointmentProvider,
@@ -34,11 +35,12 @@ function AppRoutes() {
     }, []);
 
     return (
-      <div>
+      <>
+        <Navbar />
         <Introduction />
         <Location />
         <Footer />
-      </div>
+      </>
     );
   };
 
