@@ -14,15 +14,21 @@ import LoadingPage from "./LoadingPage";
 
 function Appointment() {
   const { setOnAppointmentSucess } = useSucess();
-  const [serviceSelected, setServiceSelected] = useState([]);
-  const [fullName, setFullName] = useState({
-    firstName: "",
-    lastName: "",
-  });
-  const [phone, setPhone] = useState("");
-  const [date, setDate] = useState(dayjs());
-  const [time, setTime] = useState(null);
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
+
+  const [formData, setFormData] = useState({
+    fullName: {
+      firstName: "",
+      lastName: "",
+    },
+    phone: "",
+    serviceSelected: [],
+    date: dayjs(),
+    time: null,
+  });
+
+  console.log(formData.date);
+
   const [isLoaded, setIsLoaded] = useState(false);
   const [boxesChecked, setBoxesChecked] = useState(0);
 
@@ -39,7 +45,7 @@ function Appointment() {
       try {
         const q = query(
           collection(db, "appointments"),
-          where("date", "==", date.format("YYYY/MM/DD"))
+          where("date", "==", formData.date.format("YYYY/MM/DD"))
         );
 
         // placeholder array for getting docs out of querySnapshot
@@ -59,27 +65,21 @@ function Appointment() {
     return () => {
       setSelectedDateAppointment([]);
     };
-  }, [date]);
+  }, [formData.date]);
 
   // Add appointment to the db
   const createAppointment = async (e) => {
-    // when triggers form submit event, the default action is reloading the page. To prevent reloading from happening, use e.preventDefault()
     e.preventDefault();
-
     const newAppointmentObj = {
-      name: fullName,
-      date: date.format("YYYY/MM/DD"),
-      time: time,
-      service: serviceSelected,
-      phone: phone,
+      name: formData.fullName,
+      date: formData.date.format("YYYY/MM/DD"),
+      time: formData.time,
+      service: formData.serviceSelected,
+      phone: formData.phone,
     };
 
     try {
-      const ref = await addDoc(
-        collection(db, "appointments"),
-        newAppointmentObj
-      );
-      console.log(ref);
+      await addDoc(collection(db, "appointments"), newAppointmentObj);
     } catch (err) {
       console.error("Error adding appointment:", err);
     }
@@ -110,25 +110,20 @@ function Appointment() {
             }}
           >
             <Services
-              setServiceSelected={setServiceSelected}
-              serviceSelected={serviceSelected}
+              formData={formData}
+              setFormData={setFormData}
               setBoxesChecked={setBoxesChecked}
             />
             <DatePicker
-              date={date}
-              setDate={setDate}
-              setTime={setTime}
+              formData={formData}
+              setFormData={setFormData}
               selectedDateAppointment={selectedDateAppointment}
             />
-            <UserInputs
-              fullName={fullName}
-              setPhone={setPhone}
-              setFullName={setFullName}
-            />
+            <UserInputs setFormData={setFormData} formData={formData} />
             <div className="submitModal">
               <AlertDialogSlide
                 isOneBoxChecked={isOneBoxChecked(boxesChecked)}
-                time={time}
+                formData={formData}
               ></AlertDialogSlide>
             </div>
           </form>

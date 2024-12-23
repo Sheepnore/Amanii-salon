@@ -1,7 +1,7 @@
 import "../../styles/TimeSlots.css";
 import { useState } from "react";
 
-function TimeSlots({ setTime, selectedDateAppointment }) {
+function TimeSlots({ setFormData, formData, selectedDateAppointment }) {
   const [selectedTime, setSelectedTime] = useState(null);
 
   const timeslots = [
@@ -46,7 +46,10 @@ function TimeSlots({ setTime, selectedDateAppointment }) {
               e.preventDefault();
               if (slot.isAvailable) {
                 setSelectedTime(slot.time);
-                setTime(slot.time);
+                setFormData((prev) => ({
+                  ...prev,
+                  time: slot.time,
+                }));
               }
             }}
           >

@@ -3,22 +3,29 @@ import "../../styles/ServiceOptionCard.css";
 
 function ServiceOptionCard({
   serviceObj,
-  setServiceSelected,
-  serviceSelected,
+  setFormData,
+  formData,
   setBoxesChecked,
 }) {
   const [isChecked, setIsChecked] = useState(false);
-  console.log(serviceSelected);
+  console.log(formData.serviceSelected);
+
   const handleSelectService = () => {
-    if (serviceSelected.includes(serviceObj.service)) {
+    if (formData.serviceSelected.includes(serviceObj.service)) {
       // Remove the service from the selected list
-      const updatedServices = serviceSelected.filter(
+      const updatedServices = formData.serviceSelected.filter(
         (itm) => itm !== serviceObj.service
       );
-      setServiceSelected(updatedServices);
+      setFormData((prev) => ({
+        ...prev,
+        serviceSelected: updatedServices,
+      }));
     } else {
       // Add the service to the selected list
-      setServiceSelected([...serviceSelected, serviceObj.service]);
+      setFormData((prev) => ({
+        ...prev,
+        serviceSelected: [...prev.serviceSelected, serviceObj.service],
+      }));
     }
   };
 

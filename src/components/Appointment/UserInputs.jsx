@@ -1,6 +1,6 @@
 import "../../styles/UserInputs.css";
 
-function UserInputs({ fullName, setFullName, setPhone }) {
+function UserInputs({ setFormData, formData }) {
   return (
     <div className="UserInputs">
       <div className="highlight-heading">3. Your Information</div>
@@ -10,11 +10,14 @@ function UserInputs({ fullName, setFullName, setPhone }) {
             type="text"
             className="firstName"
             placeholder="Your first name"
-            defaultValue={null}
+            defaultValue={formData.fullName.firstName}
             onChange={(e) => {
-              setFullName((newVal) => ({
-                ...fullName,
-                firstName: e.target.value,
+              setFormData((prev) => ({
+                ...prev,
+                fullName: {
+                  ...prev.fullName,
+                  firstName: e.target.value,
+                },
               }));
             }}
             pattern="[\u4e00-\u9fff]{1,5}"
@@ -25,11 +28,14 @@ function UserInputs({ fullName, setFullName, setPhone }) {
             type="text"
             className="lastName"
             placeholder="Your last name"
-            defaultValue={null}
+            defaultValue={formData.fullName.lastName}
             onChange={(e) => {
-              setFullName((newVal) => ({
-                ...fullName,
-                lastName: e.target.value,
+              setFormData((prev) => ({
+                ...prev,
+                fullName: {
+                  ...prev.fullName,
+                  lastName: e.target.value,
+                },
               }));
             }}
             pattern="[\u4e00-\u9fff]{1,5}"
@@ -40,9 +46,12 @@ function UserInputs({ fullName, setFullName, setPhone }) {
             type="tel"
             className="phone"
             placeholder="Phone number for contact"
-            defaultValue={null}
+            defaultValue={formData.phone}
             onChange={(e) => {
-              setPhone(() => e.target.value);
+              setFormData((prev) => ({
+                ...prev,
+                phone: e.target.value,
+              }));
             }}
             pattern="^0\d{9}"
             required

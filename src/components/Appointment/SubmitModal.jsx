@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function SubmitModal({ isOneBoxChecked, time }) {
+export default function SubmitModal({ isOneBoxChecked, formData }) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,7 +30,7 @@ export default function SubmitModal({ isOneBoxChecked, time }) {
           handleClickOpen();
         }}
         className="submitBtn"
-        disabled={isOneBoxChecked ? (time ? false : true) : true}
+        disabled={isOneBoxChecked ? (formData.time ? false : true) : true}
       >
         預約
       </button>
@@ -45,6 +45,12 @@ export default function SubmitModal({ isOneBoxChecked, time }) {
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             您確定要送出該預約嗎？
+          </DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">
+            日期：{formData.date.format("YYYY/MM/DD")}
+          </DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">
+            時間：{formData.time}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

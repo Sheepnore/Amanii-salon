@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { GlobalStyle } from "./styles";
 import Introduction from "./components/Home/Introduction";
+import Products from "./components/Home/Products";
 import Appointment from "./components/Appointment/Appointment";
 import Location from "./components/Home/Location";
 import Footer from "./components/Home/Footer";
@@ -38,6 +39,7 @@ function AppRoutes() {
       <>
         <Navbar />
         <Introduction />
+        <Products></Products>
         <Location />
         <Footer />
       </>

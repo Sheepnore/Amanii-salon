@@ -1,8 +1,7 @@
-import { useEffect, useState, useMemo } from "react";
 import "../../styles/Services.css";
 import ServiceOptionCard from "./ServiceOptionCard";
 
-function Services({ serviceSelected, setServiceSelected, setBoxesChecked }) {
+function Services({ setFormData, formData, setBoxesChecked }) {
   const services = [
     { service: "Haircut", price_NTD: 2000 },
     { service: "Hairwash", price_NTD: 500 },
@@ -21,8 +20,8 @@ function Services({ serviceSelected, setServiceSelected, setBoxesChecked }) {
             <ServiceOptionCard
               serviceObj={service}
               key={service.service}
-              setServiceSelected={setServiceSelected}
-              serviceSelected={serviceSelected}
+              setFormData={setFormData}
+              formData={formData}
               setBoxesChecked={setBoxesChecked}
             />
           );

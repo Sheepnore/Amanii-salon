@@ -3,8 +3,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar as MUIDateCalendar } from "@mui/x-date-pickers";
 import TimeSlots from "./TimeSlots";
-
-function DatePicker({ date, time, setDate, setTime, selectedDateAppointment }) {
+import dayjs from "dayjs";
+function DatePicker({ setFormData, formData, selectedDateAppointment }) {
+  const dateValue = dayjs(formData.date);
+  console.log(dateValue);
   return (
     <div className="DatePicker">
       <div className="highlight-heading">2. Select Time</div>
@@ -12,16 +14,20 @@ function DatePicker({ date, time, setDate, setTime, selectedDateAppointment }) {
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MUIDateCalendar
             className="dateCalendar"
-            defaultValue={date}
-            value={date}
+            defaultValue={dateValue}
+            value={dateValue}
             onChange={(newDate) => {
-              setDate(newDate);
+              setFormData((prev) => ({
+                ...prev,
+                date: newDate,
+              }));
             }}
             disablePast={true}
           />
         </LocalizationProvider>
         <TimeSlots
-          setTime={setTime}
+          setFormData={setFormData}
+          formData={formData}
           selectedDateAppointment={selectedDateAppointment}
         />
       </div>
