@@ -6,12 +6,14 @@
   align-items: center;
 }
 .Appointment{
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr; */
   display: flex;
   flex-direction: column;
   padding-inline: var(--page-padding-inline);
   padding-bottom: 2rem;
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+@media screen and (max-width: 768px) {
+  .Appointment {
+    padding-inline: 1rem;
+  }
 }

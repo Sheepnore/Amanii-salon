@@ -30,7 +30,7 @@ function TimeSlots({ setFormData, formData, selectedDateAppointment }) {
 
   return (
     <div className="TimeSlots">
-      <div>選擇預約時間：</div>
+      <div className="timeslots-heading">選擇預約時間：</div>
       <div className="timeslots-container">
         {timeslots.map((slot) => (
           <div

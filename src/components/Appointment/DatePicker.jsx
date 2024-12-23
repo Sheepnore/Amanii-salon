@@ -13,7 +13,7 @@ function DatePicker({ setFormData, formData, selectedDateAppointment }) {
       <div className="datepicker-container">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MUIDateCalendar
-            className="dateCalendar"
+            className="calendar"
             defaultValue={dateValue}
             value={dateValue}
             onChange={(newDate) => {

@@ -1,7 +1,7 @@
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import "../../styles/Navbar.css";
-import logo from "../../assets/hairsalon_logo_horizontal_v5.png";
+import logo from "../../assets/salon-logo-v6-removebg.png";
 function Navbar() {
   return (
     <div className="navbar-container">

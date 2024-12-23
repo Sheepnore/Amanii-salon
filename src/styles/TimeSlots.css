@@ -1,28 +1,24 @@
 /* Base Styles */
 .TimeSlots {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
   padding-inline: 2rem;
   background-color: #fff;
   box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.2);
-  max-width: 25rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-
-.TimeSlots .timeslots-container {
+.timeslots-heading{
+  margin-bottom: 1rem;
+}
+.timeslots-container {
+  max-width: 32rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1rem;
-  max-width: 500px;
 }
-
 .timeslots-container .slot {
   font-family: Georgia, 'Times New Roman', Times, serif;
   border: 2px solid #a1692e;
-  font-size: 1rem;
+  font-size: clamp(.9rem, 2.5vw, 1.2rem);
   border-radius: 12px;
   text-align: center;
   padding: 1rem;
@@ -48,4 +44,25 @@
   color: gray;
   background-color: rgba(233, 233, 233, 0.7);
   cursor: not-allowed;
+}
+
+@media screen and (max-width: 1024px) {
+  .TimeSlots {
+    padding-top: 1rem;
+    padding-inline: 1rem;
+  }
+  .timeslots-container {
+    max-width: 20rem;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+  .timeslots-container .slot{
+    font-size: .8rem;
+    padding: .5rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .TimeSlots .timeslots-container{
+    max-width: 17rem;
+  }
 }

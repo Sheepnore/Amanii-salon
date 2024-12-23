@@ -1,5 +1,4 @@
 .DatePicker{
-  max-width: 100%;
   background-color: rgba(253, 226, 190, 0.2);
   margin-top: 2rem;
   border-radius: 10px;
@@ -12,7 +11,7 @@
   color: rgb(100, 70, 30);
   font-weight: bold;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.5rem;
+  font-size: var(--heading-font-size);
   margin-bottom: 1.5rem;
   padding:.8rem;
   border-radius: 10px;
@@ -24,8 +23,25 @@
   margin: 1rem 2rem 2rem 2rem;
   gap:1rem
 }
-.datepicker-container .dateCalendar{
+.datepicker-container .calendar{
   background-color: #ffff;
   margin: 0;
   box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.2);
+  max-width: 320px;
+}
+
+@media screen and (max-width: 1024px) {
+  .DatePicker{
+    margin-top: 1rem;
+  }
+  .datepicker-container{
+    margin: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .datepicker-container .calendar{
+    font-size: 0.9rem;
+    max-width: 300px;
+  }
 }
