@@ -93,12 +93,11 @@ function Appointment() {
     <>
       {isLoaded ? (
         <>
-          {/* <div className="top-section">
+          <div className="top-section">
             <Link to="/" className="link">
               <img src={backToHome_svg} alt="Back to Home" />
-              <span>回到首頁</span>
             </Link>
-          </div> */}
+          </div>
 
           <form
             className="Appointment"
@@ -145,32 +144,31 @@ function Appointment() {
                 >
                   <UserInputs setFormData={setFormData} formData={formData} />
                 </div>
-                <div
-                  className={`carousel-item ${
-                    carouselIndex === 3 ? "active" : "inactive"
-                  }`}
-                >
-                  {/* <div className="submitModal">
-                    <AlertDialogSlide
-                      isOneBoxChecked={isOneBoxChecked(boxesChecked)}
-                      formData={formData}
-                    ></AlertDialogSlide>
-                    </div> */}
-                </div>
               </div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleProceedClick();
-                }}
-                className="proceed-btn"
-              >
-                下一步
-              </button>
+              <div className="submitModal">
+                <AlertDialogSlide
+                  isOneBoxChecked={isOneBoxChecked(boxesChecked)}
+                  formData={formData}
+                  carouselIndex={carouselIndex}
+                  handleProceedClick={handleProceedClick}
+                ></AlertDialogSlide>
+              </div>
               <div className="progressStep-container">
-                <div className="progress-step"></div>
-                <div className="progress-step"></div>
-                <div className="progress-step"></div>
+                <div
+                  className={`progress-step ${
+                    carouselIndex === 0 ? "active" : ""
+                  }`}
+                ></div>
+                <div
+                  className={`progress-step ${
+                    carouselIndex === 1 ? "active" : ""
+                  }`}
+                ></div>
+                <div
+                  className={`progress-step ${
+                    carouselIndex === 2 ? "active" : ""
+                  }`}
+                ></div>
               </div>
             </div>
             <img

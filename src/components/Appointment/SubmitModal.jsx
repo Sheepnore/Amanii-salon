@@ -12,7 +12,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export default function SubmitModal({ isOneBoxChecked, formData }) {
+export default function SubmitModal({
+  isOneBoxChecked,
+  formData,
+  carouselIndex,
+  handleProceedClick,
+}) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,12 +32,16 @@ export default function SubmitModal({ isOneBoxChecked, formData }) {
         variant="outlined"
         onClick={(e) => {
           e.preventDefault();
-          handleClickOpen();
+          if (carouselIndex < 2) {
+            handleProceedClick();
+          } else {
+            handleClickOpen();
+          }
         }}
         className="submitBtn"
-        disabled={isOneBoxChecked ? (formData.time ? false : true) : true}
+        disabled={isOneBoxChecked ? false : true}
       >
-        預約
+        {carouselIndex < 2 ? "下一步" : "完成"}
       </button>
       <Dialog
         open={open}
