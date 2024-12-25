@@ -2,9 +2,12 @@ import { css } from "styled-components";
 const variable = css`
   :root{
   --page-padding-inline: clamp(1rem, 10vw, 10rem);
-  --highlight-heading-color: darkblue;
   --heading-font-size: clamp(1rem, 1vw, 2rem);
-  --heading-margin-bottom: .5rem;
+  --button-border-radius: 12px;
+  --border-radius: 16px;
+  --surrounding-box-shadow: 0 0 5px 2px rgba(128, 128, 128, 0.1);
+  --primary-color: rgb(100, 70, 30);
+  
   }
 `
 export default variable;

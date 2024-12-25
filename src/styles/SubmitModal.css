@@ -8,12 +8,12 @@
   align-self: center;
   color: #ffff;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--button-border-radius);
   padding: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: 300ms ease;
-  box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.5);
+  box-shadow: var(--surrounding-box-shadow);
 
   &:disabled{
     transform: none;

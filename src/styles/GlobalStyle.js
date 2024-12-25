@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
   *{
     box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
     margin:0;
     padding:0;
   }

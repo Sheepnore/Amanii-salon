@@ -3,8 +3,7 @@
   animation: loading-transition 1000ms ease 1 normal both;
 }
 .DatePicker .highlight-heading{
-  color: rgb(100, 70, 30);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: var(--primary-color);
   font-size: var(--heading-font-size);
   margin-bottom: var(--heading-margin-bottom);
   border-radius: 10px;

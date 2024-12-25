@@ -8,7 +8,6 @@
   position: relative;
   color: rgb(100, 70, 30);
   font-weight: bold;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: var(--heading-font-size);
   margin-bottom: var(--heading-margin-bottom);
   border-radius: 10px;

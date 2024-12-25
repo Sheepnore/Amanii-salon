@@ -9,7 +9,6 @@
   font-size: clamp(.7rem, 1vw, 1.3rem);
   transition: 300ms ease;
   cursor: pointer;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .service-card:hover{
   transform: scale(1.05);
