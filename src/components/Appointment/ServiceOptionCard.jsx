@@ -61,12 +61,6 @@ function ServiceOptionCard({
       >
         {serviceObj.service}
       </label>
-      <label
-        className={`service-cost ${isChecked ? "checked" : ""}`}
-        id={serviceObj.service}
-      >
-        Cost: {serviceObj.price_NTD}
-      </label>
     </div>
   );
 }

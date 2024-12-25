@@ -42,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
     opacity: 1;
   }
 }
+
   
 `
 export default GlobalStyle;

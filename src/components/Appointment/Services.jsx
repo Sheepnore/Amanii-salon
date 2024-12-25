@@ -3,17 +3,19 @@ import ServiceOptionCard from "./ServiceOptionCard";
 
 function Services({ setFormData, formData, setBoxesChecked }) {
   const services = [
-    { service: "Haircut", price_NTD: 2000 },
-    { service: "Hairwash", price_NTD: 500 },
-    { service: "Scalp Massage", price_NTD: 4000 },
-    { service: "Hair Perming", price_NTD: 3500 },
-    { service: "Hair Staightening", price_NTD: 3500 },
-    { service: "Hair Dyeing", price_NTD: 4000 },
+    { service: "剪髮", price_NTD: 2000 },
+    { service: "洗頭", price_NTD: 500 },
+    { service: "頭皮按摩", price_NTD: 4000 },
+    { service: "髮燙", price_NTD: 3500 },
+    { service: "縮毛矯正", price_NTD: 3500 },
+    { service: "染髮", price_NTD: 4000 },
   ];
 
   return (
     <div className="Services" id="services">
-      <div className="highlight-heading">1. Select Service</div>
+      <div className="highlight-heading">
+        <span>選擇服務</span>
+      </div>
       <div className="cards-container">
         {services.map((service) => {
           return (

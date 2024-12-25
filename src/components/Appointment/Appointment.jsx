@@ -11,11 +11,12 @@ import DatePicker from "./DatePicker";
 import UserInputs from "./UserInputs";
 import { useSucess } from "../SucessSubmitContext";
 import LoadingPage from "./LoadingPage";
+import salonInterior from "../../assets/salon-interior.jpg";
+import logo from "../../assets/salon-logo-v6-removebg.png";
 
 function Appointment() {
   const { setOnAppointmentSucess } = useSucess();
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
-
   const [formData, setFormData] = useState({
     fullName: {
       firstName: "",
@@ -26,12 +27,9 @@ function Appointment() {
     date: dayjs(),
     time: null,
   });
-
   console.log(formData.date);
-
   const [isLoaded, setIsLoaded] = useState(false);
   const [boxesChecked, setBoxesChecked] = useState(0);
-
   const isOneBoxChecked = (boxesChecked) => {
     if (boxesChecked < 1) {
       return false;
@@ -39,6 +37,12 @@ function Appointment() {
       return true;
     }
   };
+
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  function handleProceedClick() {
+    setCarouselIndex((prev) => prev + 1);
+  }
 
   useEffect(() => {
     async function fetchData() {
@@ -89,12 +93,12 @@ function Appointment() {
     <>
       {isLoaded ? (
         <>
-          <div className="top-section">
+          {/* <div className="top-section">
             <Link to="/" className="link">
               <img src={backToHome_svg} alt="Back to Home" />
               <span>回到首頁</span>
             </Link>
-          </div>
+          </div> */}
 
           <form
             className="Appointment"
@@ -109,23 +113,71 @@ function Appointment() {
               }
             }}
           >
-            <Services
-              formData={formData}
-              setFormData={setFormData}
-              setBoxesChecked={setBoxesChecked}
-            />
-            <DatePicker
-              formData={formData}
-              setFormData={setFormData}
-              selectedDateAppointment={selectedDateAppointment}
-            />
-            <UserInputs setFormData={setFormData} formData={formData} />
-            <div className="submitModal">
-              <AlertDialogSlide
-                isOneBoxChecked={isOneBoxChecked(boxesChecked)}
-                formData={formData}
-              ></AlertDialogSlide>
+            <div className="userInput-section left-box">
+              <img src={logo} alt="" className="logo" />
+              <div className="carousel">
+                <div
+                  className={`carousel-item ${
+                    carouselIndex === 0 ? "active" : "inactive"
+                  }`}
+                >
+                  <Services
+                    formData={formData}
+                    setFormData={setFormData}
+                    setBoxesChecked={setBoxesChecked}
+                  />
+                </div>
+                <div
+                  className={`carousel-item ${
+                    carouselIndex === 1 ? "active" : "inactive"
+                  }`}
+                >
+                  <DatePicker
+                    formData={formData}
+                    setFormData={setFormData}
+                    selectedDateAppointment={selectedDateAppointment}
+                  />
+                </div>
+                <div
+                  className={`carousel-item ${
+                    carouselIndex === 2 ? "active" : "inactive"
+                  }`}
+                >
+                  <UserInputs setFormData={setFormData} formData={formData} />
+                </div>
+                <div
+                  className={`carousel-item ${
+                    carouselIndex === 3 ? "active" : "inactive"
+                  }`}
+                >
+                  {/* <div className="submitModal">
+                    <AlertDialogSlide
+                      isOneBoxChecked={isOneBoxChecked(boxesChecked)}
+                      formData={formData}
+                    ></AlertDialogSlide>
+                    </div> */}
+                </div>
+              </div>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleProceedClick();
+                }}
+                className="proceed-btn"
+              >
+                下一步
+              </button>
+              <div className="progressStep-container">
+                <div className="progress-step"></div>
+                <div className="progress-step"></div>
+                <div className="progress-step"></div>
+              </div>
             </div>
+            <img
+              src={salonInterior}
+              alt="salon-interior"
+              className="right-box"
+            />
           </form>
         </>
       ) : (

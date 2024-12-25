@@ -1,7 +1,7 @@
 import "../../styles/DatePicker.css";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateCalendar as MUIDateCalendar } from "@mui/x-date-pickers";
+import { DatePicker as MUIDatePicker } from "@mui/x-date-pickers";
 import TimeSlots from "./TimeSlots";
 import dayjs from "dayjs";
 function DatePicker({ setFormData, formData, selectedDateAppointment }) {
@@ -9,11 +9,13 @@ function DatePicker({ setFormData, formData, selectedDateAppointment }) {
   console.log(dateValue);
   return (
     <div className="DatePicker">
-      <div className="highlight-heading">2. Select Time</div>
+      <div className="highlight-heading">
+        <span>選擇日期</span>
+      </div>
       <div className="datepicker-container">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <MUIDateCalendar
-            className="calendar"
+          <MUIDatePicker
+            className="datepicker"
             defaultValue={dateValue}
             value={dateValue}
             onChange={(newDate) => {

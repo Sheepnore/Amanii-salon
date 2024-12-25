@@ -10,6 +10,7 @@ function Navbar() {
       </div>
       <div className="hashlinks-container">
         <Link to="/appointment">預約</Link>
+        <Link to="/login">會員登入</Link>
         <HashLink smooth to="/#location">
           地址
         </HashLink>

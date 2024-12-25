@@ -13,10 +13,12 @@ import Location from "./components/Home/Location";
 import Footer from "./components/Home/Footer";
 import Navbar from "./components/Home/Navbar";
 import SucessPage from "./components/Appointment/SuccessPage";
+import Auth from "./components/Auth/Auth";
 import {
   SucessAppointmentProvider,
   useSucess,
 } from "./components/SucessSubmitContext";
+import "firebaseui/dist/firebaseui.css";
 
 function AppRoutes() {
   const { onAppointmentSucess, setOnAppointmentSucess } = useSucess();
@@ -52,7 +54,7 @@ function AppRoutes() {
       element: <Layout />,
       children: [
         {
-          index: true, // This makes it the default route
+          index: true, // the default route
           element: <Home />,
         },
         {
@@ -62,6 +64,10 @@ function AppRoutes() {
           ) : (
             <Appointment />
           ),
+        },
+        {
+          path: "/login",
+          element: <Auth />,
         },
         {
           path: "/sucessPage",
@@ -74,7 +80,6 @@ function AppRoutes() {
 }
 
 function App() {
-  // Create the router configuration
   return (
     <SucessAppointmentProvider>
       <AppRoutes />

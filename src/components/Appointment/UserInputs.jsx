@@ -1,15 +1,16 @@
 import "../../styles/UserInputs.css";
-
 function UserInputs({ setFormData, formData }) {
   return (
     <div className="UserInputs">
-      <div className="highlight-heading">3. Your Information</div>
+      <div className="highlight-heading">
+        <span>輸入您的聯絡訊息</span>
+      </div>
       <div className="user-info">
         <div className="info-inputs">
           <input
             type="text"
             className="firstName"
-            placeholder="Your first name"
+            placeholder="您的姓氏"
             defaultValue={formData.fullName.firstName}
             onChange={(e) => {
               setFormData((prev) => ({
@@ -27,7 +28,7 @@ function UserInputs({ setFormData, formData }) {
           <input
             type="text"
             className="lastName"
-            placeholder="Your last name"
+            placeholder="您的名字"
             defaultValue={formData.fullName.lastName}
             onChange={(e) => {
               setFormData((prev) => ({
@@ -45,7 +46,7 @@ function UserInputs({ setFormData, formData }) {
           <input
             type="tel"
             className="phone"
-            placeholder="Phone number for contact"
+            placeholder="您的電話號碼"
             defaultValue={formData.phone}
             onChange={(e) => {
               setFormData((prev) => ({
