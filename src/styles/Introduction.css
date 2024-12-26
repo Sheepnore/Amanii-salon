@@ -3,7 +3,7 @@
   background-image: url('../assets/salon-cropped.jpeg');
   background-color: rgba(0, 0, 0, 0.05);
   background-size: cover;
-  background-position: top;
+  background-position: center;
   max-width: 100%;
 }
 
@@ -38,14 +38,4 @@
 }
 .text-container button{
   align-self: flex-start;
-}
-
-@media screen and (max-width: 768px) {
-  .intro-container {
-    text-align: center;
-  }
-  
-  .text-container button {
-    align-self: center;
-  }
 }

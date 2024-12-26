@@ -9,9 +9,13 @@ function Navbar() {
         <img src={logo} alt="" />
       </div>
       <div className="hashlinks-container">
-        <Link to="/appointment">預約</Link>
-        <Link to="/login">會員登入</Link>
-        <HashLink smooth to="/#location">
+        <Link to="/appointment" className="appointmentBtn">
+          預約
+        </Link>
+        <Link to="/login" className="link">
+          會員登入
+        </Link>
+        <HashLink smooth to="/#location" className="link">
           地址
         </HashLink>
       </div>

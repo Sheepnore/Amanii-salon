@@ -3,10 +3,10 @@ import CaptionCard from "./CaptionCard";
 import productPic from "../../assets/napla-product2.png";
 function Products() {
   const captionCardText = [
-    "Napla品牌長期使用",
-    "Napla合作商家",
+    "Napla忠實使用商家",
+    "長期Napla合作",
     "使用N系列產品護髮",
-    "店內使用Naseed染膏",
+    "使用日本Naseed染膏",
   ];
 
   return (
@@ -14,7 +14,7 @@ function Products() {
       <div className="product-text-container">
         <h1 className="heading-text">
           堅持使用日本製沙龍產品，
-          <p className="subtext">有效降低髮質傷害</p>
+          <p className="subtext">有效降低髮質傷害。</p>
         </h1>
         <div className="card-container">
           {captionCardText.map((text, i) => (
