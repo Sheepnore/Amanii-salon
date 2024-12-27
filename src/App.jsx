@@ -18,6 +18,7 @@ import {
   SucessAppointmentProvider,
   useSucess,
 } from "./components/SucessSubmitContext";
+import { UserDataProvider, useAuth } from "./components/Auth/UserDataContext";
 import "firebaseui/dist/firebaseui.css";
 
 function AppRoutes() {
@@ -33,10 +34,7 @@ function AppRoutes() {
   };
 
   const Home = () => {
-    useEffect(() => {
-      setOnAppointmentSucess(false);
-    }, []);
-
+    setOnAppointmentSucess(false);
     return (
       <>
         <Navbar />
@@ -81,9 +79,11 @@ function AppRoutes() {
 
 function App() {
   return (
-    <SucessAppointmentProvider>
-      <AppRoutes />
-    </SucessAppointmentProvider>
+    <UserDataProvider>
+      <SucessAppointmentProvider>
+        <AppRoutes />
+      </SucessAppointmentProvider>
+    </UserDataProvider>
   );
 }
 
