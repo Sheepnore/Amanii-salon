@@ -10,39 +10,17 @@ function UserInputs({ setFormData, formData }) {
           <input
             type="text"
             className="firstName"
-            placeholder="您的姓氏"
-            defaultValue={formData.fullName.firstName}
+            placeholder="您的姓名"
+            defaultValue={formData.name}
             onChange={(e) => {
-              setFormData((prev) => ({
-                ...prev,
-                fullName: {
-                  ...prev.fullName,
-                  firstName: e.target.value,
-                },
-              }));
+              setFormData((prev) => ({ ...prev, name: e.target.value }));
+              console.log(formData.name);
             }}
             pattern="[\u4e00-\u9fff]{1,5}"
             required
             title="請輸入您的姓氏"
           />
-          <input
-            type="text"
-            className="lastName"
-            placeholder="您的名字"
-            defaultValue={formData.fullName.lastName}
-            onChange={(e) => {
-              setFormData((prev) => ({
-                ...prev,
-                fullName: {
-                  ...prev.fullName,
-                  lastName: e.target.value,
-                },
-              }));
-            }}
-            pattern="[\u4e00-\u9fff]{1,5}"
-            required
-            title="請輸入您的名字"
-          />
+
           <input
             type="tel"
             className="phone"

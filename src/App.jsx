@@ -20,6 +20,7 @@ import {
 } from "./components/SucessSubmitContext";
 import { UserDataProvider, useAuth } from "./components/Auth/UserDataContext";
 import "firebaseui/dist/firebaseui.css";
+import MemberDashboard from "./components/Auth/MemberDashboard";
 
 function AppRoutes() {
   const { onAppointmentSucess, setOnAppointmentSucess } = useSucess();
@@ -70,6 +71,10 @@ function AppRoutes() {
         {
           path: "/sucessPage",
           element: <SucessPage />,
+        },
+        {
+          path: "/memberDashboard",
+          element: <MemberDashboard />,
         },
       ],
     },

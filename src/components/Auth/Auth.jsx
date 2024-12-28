@@ -6,6 +6,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Auth.css";
 import salonExterior from "../../assets/salon-exterior.jpg";
+import logo from "../../assets/salon-logo-v6-removebg.png";
 
 function SignInPage() {
   const navigate = useNavigate();
@@ -24,12 +25,6 @@ function SignInPage() {
           customParameters: {
             prompt: "select_account",
           },
-        },
-        {
-          provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          signInMethod:
-            firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD,
-          forceSameDevice: false,
         },
       ],
       signInFlow: "popup",
@@ -65,13 +60,13 @@ function SignInPage() {
   return (
     <div className="SignInPage">
       {isAuthenticating ? (
-        <div className="login-message">
-          Successfully logged in! Redirecting...
-        </div>
+        <div className="login-message">登入成功！跳轉頁面中......</div>
       ) : (
         <div className="container">
           <img src={salonExterior} alt="" />
           <div className="login-options">
+            <img src={logo} alt="salon-logo" className="salon-logo" />
+            <h1>會員登入</h1>
             <div id="firebaseui-auth-container"></div>
           </div>
         </div>

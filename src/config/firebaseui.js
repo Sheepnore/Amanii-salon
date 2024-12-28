@@ -5,9 +5,7 @@ ui.start('#firebaseui-auth-container', {
   signInOptions: [
     // List of OAuth providers supported.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.PhoneAuthProvider.PROVIDER_ID,
   ],
-  // Other config options...
 });
 
 // Initialize the FirebaseUI Widget using Firebase.
@@ -33,12 +31,7 @@ var uiConfig = {
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
-  // Terms of service url.
-  tosUrl: '<your-tos-url>',
-  // Privacy policy url.
-  privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);

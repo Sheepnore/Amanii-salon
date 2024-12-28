@@ -33,3 +33,6 @@
 .login-options{
   text-align: center;
 }
+.login-options .salon-logo{
+  max-width: 200px;
+}

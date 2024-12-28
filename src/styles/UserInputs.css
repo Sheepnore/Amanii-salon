@@ -8,8 +8,6 @@
   font-size: var(--heading-font-size);
   padding:.8rem;
 }
-.UserInputs .user-info{
-}
 .UserInputs .info-inputs{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -18,10 +18,7 @@ function Appointment() {
   const { setOnAppointmentSucess } = useSucess();
   const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
   const [formData, setFormData] = useState({
-    fullName: {
-      firstName: "",
-      lastName: "",
-    },
+    name: "",
     phone: "",
     serviceSelected: [],
     date: dayjs(),
@@ -37,7 +34,6 @@ function Appointment() {
       return true;
     }
   };
-
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   function handleProceedClick() {
@@ -75,7 +71,7 @@ function Appointment() {
   const createAppointment = async (e) => {
     e.preventDefault();
     const newAppointmentObj = {
-      name: formData.fullName,
+      name: formData.name,
       date: formData.date.format("YYYY/MM/DD"),
       time: formData.time,
       service: formData.serviceSelected,
