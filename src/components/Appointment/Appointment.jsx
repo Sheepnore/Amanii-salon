@@ -16,7 +16,7 @@ import logo from "../../assets/salon-logo-v6-removebg.png";
 
 function Appointment() {
   const { setOnAppointmentSucess } = useSucess();
-  const [selectedDateAppointment, setSelectedDateAppointment] = useState([]);
+  const [selectedDateAppointments, setSelectedDateAppointments] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -24,7 +24,6 @@ function Appointment() {
     date: dayjs(),
     time: null,
   });
-  console.log(formData.date);
   const [isLoaded, setIsLoaded] = useState(false);
   const [boxesChecked, setBoxesChecked] = useState(0);
   const isOneBoxChecked = (boxesChecked) => {
@@ -41,29 +40,36 @@ function Appointment() {
   }
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchDateData() {
       try {
-        const q = query(
+        // fetch all non member appointment data on user selected date
+        const nonMemberQuery = query(
           collection(db, "appointments"),
           where("date", "==", formData.date.format("YYYY/MM/DD"))
         );
+        const selectedDateAppoQuery = await getDocs(nonMemberQuery);
 
-        // placeholder array for getting docs out of querySnapshot
-        let temp = [];
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          temp.push(doc.data());
-        });
-        setSelectedDateAppointment(temp);
+        // fetch all login user appointment data on user selected date
+        const loginUserQuery = query(
+          collection(db, "login-user-appointments"),
+          where("date", "==", formData.date.format("YYYY/MM/DD"))
+        );
+
+        const selectedDateAppointments = selectedDateAppoQuery.docs.map(
+          (doc) => ({ ...doc.data(), id: doc.id })
+        );
+        console.log("selectedDateAppointments:", selectedDateAppointments);
+
+        setSelectedDateAppointments(selectedDateAppointments);
         setIsLoaded(true);
       } catch (err) {
         console.error(err);
       }
     }
-    fetchData();
+    fetchDateData();
 
     return () => {
-      setSelectedDateAppointment([]);
+      setSelectedDateAppointments([]);
     };
   }, [formData.date]);
 
@@ -130,7 +136,7 @@ function Appointment() {
                   <DatePicker
                     formData={formData}
                     setFormData={setFormData}
-                    selectedDateAppointment={selectedDateAppointment}
+                    selectedDateAppointments={selectedDateAppointments}
                   />
                 </div>
                 <div

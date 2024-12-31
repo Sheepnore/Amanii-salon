@@ -1,7 +1,7 @@
 import "../../styles/TimeSlots.css";
 import { useState } from "react";
 
-function TimeSlots({ setFormData, formData, selectedDateAppointment }) {
+function TimeSlots({ setFormData, formData, selectedDateAppointments }) {
   const [selectedTime, setSelectedTime] = useState(null);
 
   const timeslots = [
@@ -19,8 +19,9 @@ function TimeSlots({ setFormData, formData, selectedDateAppointment }) {
     { time: "20:00", isAvailable: true },
   ];
 
+  console.log(selectedDateAppointments);
   // Mark unavailable times based on selectedDateAppointment
-  selectedDateAppointment.forEach((slotData) => {
+  selectedDateAppointments.forEach((slotData) => {
     timeslots.forEach((slot) => {
       if (slot.time === slotData.time) {
         slot.isAvailable = false;

@@ -35,7 +35,9 @@ function AppRoutes() {
   };
 
   const Home = () => {
-    setOnAppointmentSucess(false);
+    useEffect(() => {
+      setOnAppointmentSucess(false);
+    }, []);
     return (
       <>
         <Navbar />

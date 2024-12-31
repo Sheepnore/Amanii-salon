@@ -18,9 +18,11 @@ function Navbar() {
         <Link to="/appointment" className="appointmentBtn">
           預約
         </Link>
-        <Link to="/login" className="link">
-          會員登入
-        </Link>
+        {!userData && (
+          <Link to="/login" className="link">
+            會員登入
+          </Link>
+        )}
         <Link to="/memberDashboard" className="link">
           預約查詢
         </Link>
