@@ -8,7 +8,7 @@ function ServiceOptionCard({
   setBoxesChecked,
 }) {
   const [isChecked, setIsChecked] = useState(false);
-  console.log(formData.serviceSelected);
+  // console.log(formData.serviceSelected);
 
   const handleSelectService = () => {
     if (formData.serviceSelected.includes(serviceObj.service)) {
