@@ -11,14 +11,10 @@
   z-index: 1000;
   box-shadow: var(--surrounding-box-shadow);
 }
-
-
 .navbar-container .logo img{
   width: 180px;
   height: auto;
 }
-
-
 .navbar-container .hashlinks-container{
   display: flex;
   gap: 2rem;
@@ -44,6 +40,19 @@
   box-shadow: var(--surrounding-box-shadow);
   padding: .6rem 1.5rem;
   transition: all 300ms ease;
+  &:hover{
+    opacity: .8;
+    transform: scale(1.05);
+    transition: all 300ms ease;
+  }
+}
+.navbar-container .hashlinks-container .signoutBtn{
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background-color: transparent;
+  padding: .5rem 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
   &:hover{
     opacity: .8;
     transform: scale(1.05);

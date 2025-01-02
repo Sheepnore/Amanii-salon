@@ -4,6 +4,7 @@ import "../../styles/Navbar.css";
 import logo from "../../assets/salon-logo-v6-removebg.png";
 import { useAuth } from "../Auth/UserDataContext";
 import { auth } from "../../config/firebase";
+import SignoutModal from "./SignoutModal";
 
 function Navbar() {
   const { userData } = useAuth();
@@ -30,15 +31,13 @@ function Navbar() {
           地址
         </HashLink>
         {userData && (
-          <button
+          <SignoutModal
             onClick={() => {
               auth.signOut().then(() => {
                 console.log("user signout");
               });
             }}
-          >
-            登出
-          </button>
+          />
         )}
       </div>
     </div>
