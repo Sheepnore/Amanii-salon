@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import backToHome_svg from "../../assets/back-to-home.svg";
+import backToHome_svg from "../../assets/back-to-home-black.svg";
 import AlertDialogSlide from "./SubmitModal";
 import DatePicker from "./DatePicker";
 import UserInputs from "./UserInputs";
@@ -41,7 +41,7 @@ function Appointment() {
   useEffect(() => {
     async function fetchDateData() {
       try {
-        // fetch all non member appointment data on user selected date
+        // fetch all non member appointment data on user selected date;
         const nonMemberQuery = query(
           collection(db, "appointments"),
           where("date", "==", formData.date.format("YYYY/MM/DD"))
@@ -91,7 +91,7 @@ function Appointment() {
         name: userData.name,
         date: formData.date.format("YYYY/MM/DD"),
         time: formData.time,
-        service: formData.serviceSelected,
+        services: formData.serviceSelected,
         phone: formData.phone,
         email: userData.email,
         accountId: userData.uid,
@@ -109,7 +109,7 @@ function Appointment() {
         name: formData.name,
         date: formData.date.format("YYYY/MM/DD"),
         time: formData.time,
-        service: formData.serviceSelected,
+        services: formData.serviceSelected,
         phone: formData.phone,
       };
       try {

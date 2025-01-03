@@ -9,6 +9,16 @@
   margin-bottom: 2rem;
 }
 
+.backToHome-link{
+  background-image: url('../assets/back-to-home-black.svg');
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
+
+}
+
 h2 {
   font-size: 1.5rem;
   font-weight: 700;

@@ -3,7 +3,7 @@ import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
 import { useAuth } from "./UserDataContext";
 import { useEffect, useState } from "react";
 import "../../styles/MemberDashboard.css";
-
+import { Link } from "react-router-dom";
 function MemberDashboard() {
   const { userData } = useAuth();
   const [name4Search, setName4Search] = useState("");
@@ -73,13 +73,10 @@ function MemberDashboard() {
     fetchUserAppointmentData();
   }, [userData]);
 
-  // if (isLoading) {
-  //   return <div>Loading......</div>;
-  // }
-
   return (
     <>
       <div className="dashboard">
+        <Link to="/" alt="backToHome-svg" className="backToHome-link" />
         {userData ? (
           <div className="member-section">
             <h2>您好，{userData.name}會員預約</h2>

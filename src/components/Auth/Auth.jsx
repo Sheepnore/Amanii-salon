@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/Auth.css";
 import salonExterior from "../../assets/salon-exterior.jpg";
 import logo from "../../assets/salon-logo-v6-removebg.png";
+import backToHome from "../../assets/back-to-home-white.svg";
+import { Link } from "react-router-dom";
 
 function SignInPage() {
   const navigate = useNavigate();
@@ -59,11 +61,12 @@ function SignInPage() {
 
   return (
     <div className="SignInPage">
+      <Link to="/" alt="backToHome-svg" className="backToHome-svg" />
       {isAuthenticating ? (
         <div className="login-message">登入成功！跳轉頁面中......</div>
       ) : (
         <div className="container">
-          <img src={salonExterior} alt="" />
+          <img src={salonExterior} alt="salonExterior" className="salon-img" />
           <div className="login-options">
             <img src={logo} alt="salon-logo" className="salon-logo" />
             <h1>會員登入</h1>
