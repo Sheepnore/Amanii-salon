@@ -1,8 +1,23 @@
-# React + Vite
+# 阿曼玉髮廊官方網站
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[連結觀看](https://salon-project-tawny.vercel.app/)
 
-Currently, two official plugins are available:
+# 專案技術使用
+* 利用React.js 和 Vite 建造專案
+* CSS flexbox、Grid 和 Material UI 設計畫面並遵循Responsive Web Design (RWD)
+* 使用Context API 作狀態管理
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 功能說明
+
+* 線上預約
+  - 非註冊用戶輸入姓名和電話來進行預約
+  - 網站利用Google account的資訊，會員用戶只需選填時間和服務即可完成預約
+  - 使用Cloud Firestore 儲存非註冊和會員用戶預約資料
+
+* 會員登入系統
+  - 使用Firebase Authentication 管理用戶
+  - 提供第三方Google Auth Provider進行登入，用戶省去記憶帳號密碼，只需一個Google帳戶便可預約
+
+* 預約查詢
+  - 非會員的用戶輸入姓名和電話即可查詢
+  - 會員用戶不必輸入姓名、電話，後端利用google 帳戶資訊
