@@ -6,6 +6,7 @@
 * 利用React.js 和 Vite 建造專案
 * CSS flexbox、Grid 和 Material UI 設計畫面並遵循Responsive Web Design (RWD)
 * 使用Context API 作狀態管理
+* 使用Firebase 搭建後端
 
 # 功能說明
 
