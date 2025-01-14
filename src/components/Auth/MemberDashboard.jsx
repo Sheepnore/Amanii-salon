@@ -4,6 +4,7 @@ import { useAuth } from "./UserDataContext";
 import { useEffect, useState } from "react";
 import "../../styles/MemberDashboard.css";
 import { Link } from "react-router-dom";
+
 function MemberDashboard() {
   const { userData } = useAuth();
   const [name4Search, setName4Search] = useState("");

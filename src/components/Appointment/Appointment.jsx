@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
-import Services from "./Services";
-import "../../styles/Appointment.css";
-import dayjs from "dayjs";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import backToHome_svg from "../../assets/back-to-home-black.svg";
+import { useSucess } from "../SucessSubmitContext";
+import { useAuth } from "../Auth/UserDataContext";
 import AlertDialogSlide from "./SubmitModal";
+import Services from "./Services";
 import DatePicker from "./DatePicker";
 import UserInputs from "./UserInputs";
-import { useSucess } from "../SucessSubmitContext";
+import dayjs from "dayjs";
+import backToHome_svg from "../../assets/back-to-home-black.svg";
 import salonInterior from "../../assets/salon-interior.jpg";
 import logo from "../../assets/salon-logo-v6-removebg.png";
-import { useAuth } from "../Auth/UserDataContext";
+import "../../styles/Appointment.css";
+
 function Appointment() {
   const { setOnAppointmentSucess } = useSucess();
   const [selectedDateAppointments, setSelectedDateAppointments] = useState([]);

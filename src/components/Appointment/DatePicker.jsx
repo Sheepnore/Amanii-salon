@@ -4,9 +4,11 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker as MUIDatePicker } from "@mui/x-date-pickers";
 import TimeSlots from "./TimeSlots";
 import dayjs from "dayjs";
+
 function DatePicker({ setFormData, formData, selectedDateAppointments }) {
   const dateValue = dayjs(formData.date);
   console.log(dateValue);
+
   return (
     <div className="DatePicker">
       <div className="highlight-heading">
@@ -17,7 +19,7 @@ function DatePicker({ setFormData, formData, selectedDateAppointments }) {
           <MUIDatePicker
             className="datepicker"
             defaultValue={dateValue}
-            value={dateValue}
+            // value={dateValue}
             onChange={(newDate) => {
               setFormData((prev) => ({
                 ...prev,
