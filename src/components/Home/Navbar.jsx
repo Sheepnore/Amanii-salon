@@ -27,9 +27,6 @@ function Navbar() {
         <Link to="/memberDashboard" className="link">
           預約查詢
         </Link>
-        <HashLink smooth to="/#location" className="link">
-          地址
-        </HashLink>
         {userData && (
           <SignoutModal
             onClick={() => {
