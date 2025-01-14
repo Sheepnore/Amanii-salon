@@ -42,7 +42,7 @@ function AppRoutes() {
       <>
         <Navbar />
         <Introduction />
-        <Products></Products>
+        <Products />
         <Location />
         <Footer />
       </>

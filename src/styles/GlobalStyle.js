@@ -43,6 +43,26 @@ const GlobalStyle = createGlobalStyle`
     opacity: 1;
   }
 }
+@keyframes slide-from-left{
+  from {
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0%);
+    opacity: 1
+  }
+}
+@keyframes slide-from-right {
+  from {
+    transform: translateX(5%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0%);
+    opacity: 1
+  }
+}
 
   
 `
