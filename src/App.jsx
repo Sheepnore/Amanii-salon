@@ -21,6 +21,7 @@ import {
 import { UserDataProvider, useAuth } from "./components/Auth/UserDataContext";
 import "firebaseui/dist/firebaseui.css";
 import MemberDashboard from "./components/Auth/MemberDashboard";
+import SalonOwnerCalendar from "./components/OwnerDashboard/SalonOwnerCalendar";
 
 function AppRoutes() {
   const { onAppointmentSucess, setOnAppointmentSucess } = useSucess();
@@ -77,6 +78,10 @@ function AppRoutes() {
         {
           path: "/memberDashboard",
           element: <MemberDashboard />,
+        },
+        {
+          path: "/SalonOwnerDashboard",
+          element: <SalonOwnerCalendar />,
         },
       ],
     },
