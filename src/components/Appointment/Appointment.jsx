@@ -1,18 +1,15 @@
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import { useSucess } from "../SucessSubmitContext";
 import { useAuth } from "../Auth/UserDataContext";
-import AlertDialogSlide from "./SubmitModal";
-import Services from "./Services";
-import DatePicker from "./DatePicker";
-import UserInputs from "./UserInputs";
+import { useSucess } from "../SucessSubmitContext";
 import dayjs from "dayjs";
 import backToHome_svg from "../../assets/back-to-home-black.svg";
 import salonInterior from "../../assets/salon-interior.jpg";
 import logo from "../../assets/salon-logo-v6-removebg.png";
 import "../../styles/Appointment.css";
+import { DatePicker, Services, SubmitModal, UserInputs } from "./index.js";
 
 function Appointment() {
   const { setOnAppointmentSucess } = useSucess();
@@ -71,7 +68,6 @@ function Appointment() {
         console.log("selectedDateAppointments:", allAppoData);
 
         setSelectedDateAppointments(allAppoData);
-        setIsLoaded(true);
       } catch (err) {
         console.error(err);
       }
@@ -83,7 +79,8 @@ function Appointment() {
     };
   }, [formData.date]);
 
-  // Add appointment to the db
+  // Add appointment to the db, if user's logged in, use google account info. Otherwise use form data to make appo
+
   const createAppointment = async (e) => {
     e.preventDefault();
     console.log(userData);
@@ -187,12 +184,12 @@ function Appointment() {
             </div>
           </div>
           <div className="submitModal">
-            <AlertDialogSlide
+            <SubmitModal
               isOneBoxChecked={isOneBoxChecked(boxesChecked)}
               formData={formData}
               carouselIndex={carouselIndex}
               handleProceedClick={handleProceedClick}
-            ></AlertDialogSlide>
+            ></SubmitModal>
           </div>
           <div className="progressStep-container">
             <div

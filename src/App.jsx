@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   createBrowserRouter,
-  RouterProvider,
-  Outlet,
   Navigate,
+  Outlet,
+  RouterProvider,
 } from "react-router-dom";
+import { Appointment, SucessPage } from "./components/Appointment";
+import {
+  Footer,
+  Introduction,
+  Location,
+  Navbar,
+  Products,
+} from "./components/Home";
 import { GlobalStyle } from "./styles";
-import Introduction from "./components/Home/Introduction";
-import Products from "./components/Home/Products";
-import Appointment from "./components/Appointment/Appointment";
-import Location from "./components/Home/Location";
-import Footer from "./components/Home/Footer";
-import Navbar from "./components/Home/Navbar";
-import SucessPage from "./components/Appointment/SuccessPage";
-import Auth from "./components/Auth/Auth";
+import Auth from "@/components/Auth/Auth";
+import "firebaseui/dist/firebaseui.css";
+import MemberDashboard from "./components/Auth/MemberDashboard";
+import { UserDataProvider } from "./components/Auth/UserDataContext";
+import SalonOwnerCalendar from "./components/OwnerDashboard/SalonOwnerCalendar";
 import {
   SucessAppointmentProvider,
   useSucess,
 } from "./components/SucessSubmitContext";
-import { UserDataProvider, useAuth } from "./components/Auth/UserDataContext";
-import "firebaseui/dist/firebaseui.css";
-import MemberDashboard from "./components/Auth/MemberDashboard";
-import SalonOwnerCalendar from "./components/OwnerDashboard/SalonOwnerCalendar";
 
 function AppRoutes() {
   const { onAppointmentSucess, setOnAppointmentSucess } = useSucess();
