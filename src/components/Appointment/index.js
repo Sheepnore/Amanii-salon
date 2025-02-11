@@ -1,6 +1,6 @@
 export {default as Appointment} from './Appointment';
 export {default as DatePicker} from './DatePicker';
-export {default as LoadingPage} from './LoadingPage';
+export {default as LoadingPage} from '../LoadingPage';
 export {default as ServiceOptionCard} from './ServiceOptionCard';
 export {default as Services} from './Services';
 export {default as SubmitModal} from './SubmitModal';
